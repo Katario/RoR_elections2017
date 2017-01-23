@@ -1,0 +1,2 @@
+class AdminTour < ApplicationRecord
+end

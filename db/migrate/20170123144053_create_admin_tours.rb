@@ -1,6 +1,6 @@
-class CreateTours < ActiveRecord::Migration[5.0]
+class CreateAdminTours < ActiveRecord::Migration[5.0]
   def change
-    create_table :tours do |t|
+    create_table :admin_tours do |t|
       t.timestamp :date_debut
       t.timestamp :date_fin
 

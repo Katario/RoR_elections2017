@@ -1,0 +1,2 @@
+module AdminToursHelper
+end
