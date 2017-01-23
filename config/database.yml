@@ -23,8 +23,8 @@ test:
 production:
   #<<: *default
   #database: db/production.sqlite3
-  #adapter: postgresql
-  #host: ec2-54-243-185-132.compute-1.amazonaws.com
-  #database: d4o54k9a48olli
-  #username: btvkfsoxkrshhj
-  #password: egMqlQC58zuDgOvwo0yysv6PZx
+  adapter: postgresql
+  host: ec2-54-83-25-217.compute-1.amazonaws.com
+  database: dbandn0stnirf6
+  username: lmoeuxuyamahmm
+  password: 28b51bca238ad02ff875b569129ac2ddb6083b6b5b78f99ac4bf394e0d828e08
