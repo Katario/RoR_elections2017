@@ -1,0 +1,9 @@
+<h1><%= @candidate.prenom @candidate.nom %></h1>
+<p>
+  <%= @candidate.affiliation %>
+</p>
+<p>
+  <%= @candidate.descriptif %>
+</p>
+
+<%= link_to 'Liste des candidats', candidates_path %>

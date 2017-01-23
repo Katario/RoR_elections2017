@@ -1,2 +1,0 @@
-class AdminTour < ApplicationRecord
-end

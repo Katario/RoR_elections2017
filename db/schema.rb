@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123144053) do
+ActiveRecord::Schema.define(version: 20170123164238) do
 
-  create_table "admin_tours", force: :cascade do |t|
+  create_table "candidates", force: :cascade do |t|
+    t.string   "nom"
+    t.string   "prenom"
+    t.string   "affiliation"
+    t.string   "photo"
+    t.text     "descriptif"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tours", force: :cascade do |t|
     t.datetime "date_debut"
     t.datetime "date_fin"
     t.datetime "created_at", null: false
