@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:name], params[:encrypted_code])
     if user
-      user.active = true
+      user.active = 1
       user.save
       session[:user_id] = user.id
       redirect_to action: "new", :notice =>'Logged in!'
