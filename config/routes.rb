@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :admins
   get 'users/new'
 
   scope '/admin' do
