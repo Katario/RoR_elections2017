@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-
   namespace 'admin' do
     resources :tours
+    resources :candidates
   end
   resources :candidates
   resources :users
