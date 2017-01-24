@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   def is_admin_logged
     if !session[:admin_id]
-      redirect_to :controller => 'admin_connexions', :action => 'new', :notice => "Not logged"
+      redirect_to :controller => 'connexions', :action => 'new', :notice => "Not logged"
     end
     if session[:user_id]
       session[:user_id] = nil
