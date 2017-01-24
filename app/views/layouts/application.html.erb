@@ -9,14 +9,22 @@
 
   <body>
     <div id="user_nav">
-      
+
 <% if current_user %>
   Logged In as <%= current_user.name %> <%= current_user.forname %>
   <%= link_to "log out", log_out_path %>
+<% elsif current_admin %>
+  Logged In as <%= current_admin.login %>
+  <%= link_to "admin_log out", admin_log_out_path %>
 <% else %>
-<%= link_to "Sign Up", sign_up_path %>
-<%= link_to "log in", log_in_path %>
+<% namespace = controller_path.split('/').first%>
+  <% if namespace == "Admin" %>
+    <%= link_to "log in", admin_log_in_path %>
+  <% else %>
+    <%= link_to "log in", log_in_path %>
+  <% end %>
 <% end %>
+
 </div>
 
 <% flash.each do |name, msg| %>

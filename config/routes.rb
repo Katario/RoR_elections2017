@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
-
   namespace 'admin' do
     resources :tours
     resources :users
 
+  	root 'connexions#new'
+
+    get 'log_in' => "connexions#new", :as => "log_in"
+    get 'log_out' => "connexions#destroy", :as => "log_out"
+
+  	resources :admins
+    resources :connexions
   end
   resources :users
 
