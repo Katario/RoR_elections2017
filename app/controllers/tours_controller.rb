@@ -1,4 +1,4 @@
-class ToursController < ApplicationController
+class Admin::ToursController < ApplicationController
   before_action :set_tour, only: [:show, :edit, :update, :destroy]
 
   # GET /tours
