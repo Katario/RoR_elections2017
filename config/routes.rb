@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   namespace 'admin' do
     resources :tours
+    resources :users
+
   end
   resources :candidates
-  resources :users
   resources :sessions
 
   get 'sessions/new'
