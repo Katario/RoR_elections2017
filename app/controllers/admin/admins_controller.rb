@@ -1,4 +1,4 @@
-class AdminsController < ApplicationController
+class Admin::AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
   # GET /admins
@@ -28,8 +28,8 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.save
-        format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
-        format.json { render :show, status: :created, location: @admin }
+        format.html { redirect_to admin_admins_path, notice: 'Admin was successfully created.' }
+        format.json { render :show, status: :created, location: admin_admin_path }
       else
         format.html { render :new }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class AdminsController < ApplicationController
   def update
     respond_to do |format|
       if @admin.update(admin_params)
-        format.html { redirect_to @admin, notice: 'Admin was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin }
+        format.html { redirect_to admin_admins_path, notice: 'Admin was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_admin_path }
       else
         format.html { render :edit }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
@@ -56,15 +56,9 @@ class AdminsController < ApplicationController
   def destroy
     @admin.destroy
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
+      format.html { redirect_to admin_admins_path, notice: 'Admin was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def login
-  end
-
-  def logout
   end
 
   private
