@@ -20,7 +20,7 @@
         <td><%= candidate.nom %></td>
         <td><%= candidate.prenom %></td>
         <td><%= candidate.affiliation %></td>
-        <td><%= candidate.photo %></td>
+        <td><%= image_tag  candidate.photo %></td>
         <td><%= candidate.descriptif %></td>
         <td><%= link_to 'Show', admin_candidate_path(candidate) %></td>
         <td><%= link_to 'Edit', edit_admin_candidate_path(candidate) %></td>
