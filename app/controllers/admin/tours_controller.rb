@@ -28,8 +28,8 @@ class Admin::ToursController < ApplicationController
 
     respond_to do |format|
       if @tour.save
-        format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
-        format.json { render :show, status: :created, location: @tour }
+        format.html { redirect_to admin_tours_path, notice: 'Tour was successfully created.' }
+        format.json { render :show, status: :created, location: admin_tours_path }
       else
         format.html { render :new }
         format.json { render json: @tour.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class Admin::ToursController < ApplicationController
   def update
     respond_to do |format|
       if @tour.update(tour_params)
-        format.html { redirect_to @tour, notice: 'Tour was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tour }
+        format.html { redirect_to admin_tours_path, notice: 'Tour was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_tours_path }
       else
         format.html { render :edit }
         format.json { render json: @tour.errors, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class Admin::ToursController < ApplicationController
   def destroy
     @tour.destroy
     respond_to do |format|
-      format.html { redirect_to tours_url, notice: 'Tour was successfully destroyed.' }
+      format.html { redirect_to admin_tours_path, notice: 'Tour was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

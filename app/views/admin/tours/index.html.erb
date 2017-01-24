@@ -16,9 +16,9 @@
       <tr>
         <td><%= tour.date_debut %></td>
         <td><%= tour.date_fin %></td>
-        <td><%= link_to 'Show', tour %></td>
-        <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
-        <td><%= link_to 'Destroy', tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_tour_path(tour) %></td>
+        <td><%= link_to 'Edit', edit_admin_tour_path(tour) %></td>
+        <td><%= link_to 'Destroy', admin_tour_path(tour), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Tour', new_tour_path %>
+<%= link_to 'New Tour', new_admin_tour_path %>
