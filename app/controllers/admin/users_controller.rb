@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to action: "new", :notice => "Signed Up"
+      redirect_to action: "new", :notice => @user.active
     else
       render "new"
     end
