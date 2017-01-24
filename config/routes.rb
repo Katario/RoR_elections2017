@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   namespace 'admin' do
     resources :tours
     resources :candidates
+    resources :votes
   end
   resources :candidates
   resources :users
   resources :sessions
+  resources :votes
+
+
 
   get 'sessions/new'
   get 'log_out' => "sessions#destroy", :as => "log_out"
