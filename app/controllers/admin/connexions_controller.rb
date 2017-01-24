@@ -1,4 +1,7 @@
 class Admin::ConnexionsController < ApplicationController
+  def index
+  end  
+
   def new
   end
 
@@ -6,7 +9,7 @@ class Admin::ConnexionsController < ApplicationController
     admin = Admin.authenticate(params[:login], params[:password])
     if admin
       session[:admin_id] = admin.id
-      redirect_to admin_admins_path action:"new", :notice =>'Logged in!'
+      redirect_to admin_connexions_path action:"index", :notice =>'Logged in!'
     else
       flash.now.alert = "Invalid login or password"
       render "new"
