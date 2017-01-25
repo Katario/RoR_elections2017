@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   	resources :admins
     resources :connexions
   end
-  resources :users
+  root 'candidates#index'
 
+  resources :users
   resources :candidates
   resources :sessions
 

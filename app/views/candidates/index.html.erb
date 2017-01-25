@@ -1,7 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+
 <h1>Candidates</h1>
 
+<% if current_user %>
+  <%= link_to 'Je Vote', candidates_path %>
+<% else %>
+  <%= link_to 'Connexion', new_session_path %>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -26,4 +32,6 @@
       </tr>
     <% end %>
   </tbody>
+
+
 </table>
