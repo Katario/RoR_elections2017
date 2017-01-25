@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   namespace 'admin' do
-<<<<<<< HEAD
+    resources :tours
+    resources :users
+
   	root 'connexions#new'
 
     get 'log_in' => "connexions#new", :as => "log_in"
@@ -9,14 +11,13 @@ Rails.application.routes.draw do
 
   	resources :admins
     resources :connexions
-=======
-    resources :tours
     resources :candidates
     resources :votes
->>>>>>> dev_alexis
   end
-  resources :candidates
+
+  
   resources :users
+  resources :candidates
   resources :sessions
   resources :votes
 

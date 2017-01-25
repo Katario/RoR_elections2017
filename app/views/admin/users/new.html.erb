@@ -1,7 +1,11 @@
 <h1>Sign Up</h1>
-  <%= form_for @user do |f| %>
+  <%= form_for([:admin, @user]) do |f| %>
     <p> Nom:</br> <%= f.text_field :name%> </p>
+    <p> Prenom:</br> <%= f.text_field :forname%> </p>
     <p> Code:</br> <%= f.password_field :encrypted_code%> </p>
+    <p> Code Postal:</br> <%= f.text_field :postal%> </p>
+    <p> Bureau de poste:</br> <%= f.text_field :bureau%> </p>
+
     <%= f.submit :Signup %>
   <% end %>
   <% if @user.errors.any? %>
@@ -10,4 +14,4 @@
       <li>* <%= message_error %></li>
     <% end %>
     </ul>
-<% end %>
+  <% end %>
