@@ -3,17 +3,20 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
+    is_logged
     @votes = Vote.all
   end
 
   # GET /votes/new
   def new
+    is_logged
     @vote = Vote.new
   end
 
   # POST /votes
   # POST /votes.json
   def create
+    is_logged
     @vote = Vote.new(vote_params)
 
     respond_to do |format|

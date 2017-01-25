@@ -39,7 +39,9 @@
 
 #homeButton{
   text-align: center;
+margin-bottom: 30px;
 }
+
 a.btn:visited {
 color:white !important;
 }
@@ -48,7 +50,10 @@ color:white !important;
   width: 30%;
   float:left;
   margin-bottom: 40px;
+}
 
+.row {
+  margin : 0px !important
 }
 
 .candidates h3{
@@ -58,7 +63,7 @@ color:white !important;
 }
 
 .candidates p{
-  color: #0B6BA8;
+  color: #76839a;
   text-align: center;
 }
 
@@ -71,7 +76,22 @@ color:white !important;
   width: 80%;
   margin: auto;
   height: 1px;
-  background-color: #0B6BA8;
+  background-color: #a8b3c4;
   clear: both;
 }
+
+.media-left{
+  float:left;
+ padding: 20px;
+}
+
+.media-left img{
+  height: 40px;
+}
+
+.media-body{
+margin-top: 25px;
+}
+
+
  @import "bootstrap"
