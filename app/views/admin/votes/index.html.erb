@@ -1,13 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Votes</h1>
-
+      
 <table>
-  
+  <thead>
+    <tr>
+      <th>Candidat</th>
+      <th>Résultat</th>
+    </tr>
+  </thead>
+
   <tbody>
-   <div>Affichage des résultats</div>
+ <% @results.each do |result| %>
+
+      <tr>
+        <td><%= @candidates.find(result[0]).nom %></td>
+        <td><%= @candidates.find(result[0]).prenom %></td>
+
+
+        <td><%= (result[1] * 100.0 / @votes.count).round(2) %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
 <br>
+<<<<<<< HEAD
 <%= link_to 'Retour', admin_connexions_path %>
+=======
+
+<%= link_to 'New Vote', new_vote_path %>
+>>>>>>> 2971583b8fc8ac9e4cd6a3d80e1974fb233b2a17
