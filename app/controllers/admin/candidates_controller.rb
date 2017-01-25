@@ -8,6 +8,12 @@ class Admin::CandidatesController < ApplicationController
     @candidates = Candidate.all
   end
 
+  # GET /candidates
+  # GET /candidates.json
+  def vote
+    @candidates = Candidate.all
+  end
+
   # GET /candidates/1
   # GET /candidates/1.json
   def show
