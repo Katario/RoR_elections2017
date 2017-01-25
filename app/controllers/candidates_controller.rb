@@ -1,5 +1,6 @@
 class CandidatesController < ApplicationController
   def index
+    is_home
     @candidates = Candidate.all
     @tours = Tour.all
     @tours.each do |tour|
@@ -38,6 +39,7 @@ class CandidatesController < ApplicationController
   end
 
   def show
+    is_home
     @candidate = Candidate.find(params[:id])
   end
 
