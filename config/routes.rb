@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   end
 
   
+  root 'candidates#index'
+
   resources :users
   resources :candidates
   resources :sessions
