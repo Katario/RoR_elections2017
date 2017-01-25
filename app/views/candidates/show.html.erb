@@ -1,19 +1,12 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <%= @candidate.affiliation %>
-</p>
-<p>
-  <%= @candidate.prenom %>
-</p>
-<p>
-  <%= @candidate.nom %>
-</p>
-<p>
-  <%= @candidate.descriptif %>
-</p>
-
-<%= image_tag  @candidate.photo %>
-
-
-<%= link_to 'Retour', :back  %>
+<div id="candidat">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= image_tag @candidate.photo %>
+        <h3><%= @candidate.prenom %> <strong><%= @candidate.nom %></strong></h3>
+        <p><%= @candidate.affiliation %></p>
+        <p><%= @candidate.descriptif %></p>
+        <%= link_to 'Retour', :back, :class => "btn btn-primary btn-lg"  %>
+    </div>
+  </div>
+</div>

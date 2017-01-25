@@ -20,6 +20,8 @@ class CandidatesController < ApplicationController
   end
 
   def vote
+    is_logged
+
     @candidates = Candidate.all
     @tours = Tour.all
     @tours.each do |tour|
