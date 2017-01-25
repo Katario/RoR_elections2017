@@ -1,41 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<% if current_user %>
-  <%= link_to 'Je Vote', action:"vote" %>
-<% else %>
-  <%= link_to 'Connexion', new_session_path %>
-<% end %>
+<div id="homeButton">
+  <% if current_user %>
+    <% if cookies[:tour] %>
+      <%= link_to 'Je Vote', { :action => "vote"}, :class => "btn btn-lg btn-primary" %>
+    <% else %>
+      L'election est fermée au vote
+    <% end %>
+  <% else %>
+  <%= link_to 'Connexion', new_session_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
+</div>
 
-<h2>Comment ça marche ?</h2>
-<ul>
-  <li>
-    <p>1. : J'active mon compte en cliquant sur "connexion" et en rentrant mes identifiants reçus par lettre</p>
-    <%= image_tag "mail.png" %>
-  </li>
+<div class="panel panel-default">
+  <div class="panel-heading">Comment ça marche ?</div>
+  <div class="panel-body">
+    <ul>
+      <li>
+        <p>1. : J'active mon compte en cliquant sur "connexion" et en rentrant mes identifiants reçus par lettre</p>
+        <%= image_tag "mail.png" %>
+      </li>
 
-  <li>
-    <p>2. : Je vote pour le candidat de mon choix en cliquant sur le bouton "VOTER" le jour du vote</p>
-    <%= image_tag "voting.png" %>
-  </li>
+      <li>
+        <p>2. : Je vote pour le candidat de mon choix en cliquant sur le bouton "VOTER" le jour du vote</p>
+        <%= image_tag "voting.png" %>
+      </li>
 
-  <li>
-    <p>3. : Je reviens pour consulter les résultats des élections </p>
-    <%= image_tag "victorious.png" %>
-  </li>
-</ul>
-
+      <li>
+        <p>3. : Je reviens pour consulter les résultats des élections </p>
+        <%= image_tag "victorious.png" %>
+      </li>
+    </ul>
+  </div>
+</div>
 
 <h2>Les candidats</h2>
-<% @candidates.each do |candidate| %>
-  <div>
-      <%= candidate.prenom %> <strong><%= candidate.nom %></strong>
+<div class="row">
+  <% @candidates.each do |candidate| %>
+  <div class="col-sm-12 col-md-6 candidates">
+      <%= image_tag candidate.photo %>
+      <%= link_to root_path do %>
+        <h3><%= candidate.prenom %> <strong><%= candidate.nom %></strong></h3>
+        <p><%= candidate.affiliation %></p>
+      <% end %>
+      <div class="divider"> </div>
   </div>
-
-  <div><%= image_tag candidate.photo %></div>
-
-  <div><%= candidate.affiliation %></div>
-
-  <!-- lien vers un candidat -->
-  <div><%= link_to 'Show',
-      candidate_path(candidate)%></div>
-<% end %>
+  <% end %>
+</div>
