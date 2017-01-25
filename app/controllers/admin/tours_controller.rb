@@ -4,26 +4,31 @@ class Admin::ToursController < ApplicationController
   # GET /tours
   # GET /tours.json
   def index
+    is_admin_logged
     @tours = Tour.all
   end
 
   # GET /tours/1
   # GET /tours/1.json
   def show
+    is_admin_logged
   end
 
   # GET /tours/new
   def new
+    is_admin_logged
     @tour = Tour.new
   end
 
   # GET /tours/1/edit
   def edit
+    is_admin_logged
   end
 
   # POST /tours
   # POST /tours.json
   def create
+    is_admin_logged
     @tour = Tour.new(tour_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class Admin::ToursController < ApplicationController
   # PATCH/PUT /tours/1
   # PATCH/PUT /tours/1.json
   def update
+    is_admin_logged
     respond_to do |format|
       if @tour.update(tour_params)
         format.html { redirect_to admin_tours_path, notice: 'Tour was successfully updated.' }
@@ -54,6 +60,7 @@ class Admin::ToursController < ApplicationController
   # DELETE /tours/1
   # DELETE /tours/1.json
   def destroy
+    is_admin_logged
     @tour.destroy
     respond_to do |format|
       format.html { redirect_to admin_tours_path, notice: 'Tour was successfully destroyed.' }

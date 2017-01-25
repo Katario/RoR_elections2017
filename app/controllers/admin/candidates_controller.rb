@@ -4,27 +4,38 @@ class Admin::CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   def index
+    is_admin_logged
+    @candidates = Candidate.all
+  end
+
+  # GET /candidates
+  # GET /candidates.json
+  def vote
     @candidates = Candidate.all
   end
 
   # GET /candidates/1
   # GET /candidates/1.json
   def show
+    is_admin_logged
     @candidate = Candidate.find(params[:id])
   end
 
   # GET /candidates/new
   def new
+    is_admin_logged
     @candidate = Candidate.new
   end
 
   # GET /candidates/1/edit
   def edit
+    is_admin_logged
   end
 
   # POST /candidates
   # POST /candidates.json
   def create
+    is_admin_logged
     @candidate = Candidate.new(candidate_params)
 
     respond_to do |format|
@@ -41,6 +52,7 @@ class Admin::CandidatesController < ApplicationController
   # PATCH/PUT /candidates/1
   # PATCH/PUT /candidates/1.json
   def update
+    is_admin_logged
     respond_to do |format|
       if @candidate.update(candidate_params)
         format.html { redirect_to admin_candidates_path, notice: ' candidate was successfully updated.' }
@@ -55,6 +67,7 @@ class Admin::CandidatesController < ApplicationController
   # DELETE candidates/1
   # DELETE candidates/1.json
   def destroy
+    is_admin_logged
     @candidate.destroy
     respond_to do |format|
       format.html { redirect_to admin_candidates_url, notice: ' candidate was successfully destroyed.' }
