@@ -13,8 +13,7 @@
 <% if current_user %>
   Logged In as <%= current_user.name %> <%= current_user.forname %>
   <%= link_to "log out", log_out_path %>
-  <% end %>
-
+<% end %>
 <% if current_admin %>
   Logged In as <%= current_admin.login %>
   <%= link_to "admin_log out", admin_log_out_path %>
@@ -30,14 +29,17 @@
       <% end %>
     </div>
 
+    <% if current_user %>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">S'identifier</a></li>
-        <li><a href="#">Voter</a></li>
+        <li>  <%= link_to "Accueil", candidates_path %></li>
+        <li>  <%= link_to "S'identifier", new_connexion_path %></li>
+        <li>  <%= link_to "Voter", elections_path %> </li>
       </ul>
     </div><!-- /.navbar-collapse -->
+    <% end %>
+
   </div><!-- /.container-fluid -->
 </nav>
 
