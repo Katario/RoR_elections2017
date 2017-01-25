@@ -13,4 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+*, body{
+  font-family: "open_sans",Arial,Helvetica,sans-serif !important
+}
+.navbar{
+  min-height: 90px !important;
+}
+
+.navbar-brand img{
+  height: 80px;
+}
+
  @import "bootstrap"

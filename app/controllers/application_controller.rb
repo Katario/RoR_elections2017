@@ -25,6 +25,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def is_home
+    if session[:admin_id]
+      session[:admin_id] = nil
+    end
+  end
+
   def is_admin_logged
     if !session[:admin_id]
       redirect_to :controller => 'connexions', :action => 'new', :notice => "Not logged"
