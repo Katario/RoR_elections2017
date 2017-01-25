@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>Liste des utilisateurs</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Nom</th>
-      <th>Prenom</th>
+      <th>Nom des utilisateurs</th>
+      <th>Prénom des utilisateurs</th>
       <th>Code Postal</th>
       <th>Bureau de Vote</th>
   <th colspan="4"></th>
@@ -20,7 +20,7 @@
         <td><%= user.forname %></td>
         <td><%= user.postal %></td>
         <td><%= user.bureau %></td>
-        <td><%= link_to 'Show', admin_user_path(user) %></td>
+        <td><%= link_to 'Voir le profil de l\'utilisateur', admin_user_path(user) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,5 +28,5 @@
 
 <br>
 
-<%= link_to 'New User', new_admin_user_path %>
+<%= link_to 'Ajouter un utilisateur', new_admin_user_path %>
 <%= link_to 'Retour', admin_connexions_path %>

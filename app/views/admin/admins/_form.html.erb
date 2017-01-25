@@ -1,7 +1,7 @@
 <%= form_for([:admin, @admin]) do |f| %>
   <% if @admin.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
+      <h2><%= pluralize(admin.errors.count, "error") %> a empeché cet enregistrement car :</h2>
 
       <ul>
       <% admin.errors.full_messages.each do |message| %>
@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :login %>
+    <%= f.label :login, 'Identifiants' %>
     <%= f.text_field :login %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, 'Mot de passe' %>
     <%= f.text_field :password %>
   </div>
 
   <div class="field">
-    <%= f.label :statut %>
+    <%= f.label :statut, 'Statut d\'administrateur' %>
     <%= f.check_box :statut %>
   </div>
 

@@ -1,7 +1,7 @@
 <%= form_for([:admin, @candidate])  do |f| %>
   <% if @candidate.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+      <h2><%= pluralize(candidate.errors.count, "error") %> a empeché cet enregistrement car :</h2>
 
       <ul>
       <% @candidate.errors.full_messages.each do |message| %>
@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nom %>
+    <%= f.label :nom, 'Nom du candidat' %>
     <%= f.text_field :nom %>
   </div>
 
   <div class="field">
-    <%= f.label :prenom %>
+    <%= f.label :prenom, 'Prénom du candidat' %>
     <%= f.text_field :prenom %>
   </div>
 
   <div class="field">
-    <%= f.label :affiliation %>
+    <%= f.label :affiliation, 'Affiliation politique' %>
     <%= f.text_field :affiliation %>
   </div>
 
   <div class="field">
-    <%= f.label :photo %>
+    <%= f.label :photo, 'Adresse URL de la photo du candidat' %>
     <%= f.text_field :photo %>
   </div>
 
   <div class="field">
-    <%= f.label :descriptif %>
+    <%= f.label :descriptif, 'Descriptif du candidat' %>
     <%= f.text_area :descriptif %>
   </div>
 

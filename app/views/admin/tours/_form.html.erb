@@ -1,7 +1,7 @@
 <%= form_for([:admin, @tour]) do |f| %>
   <% if @tour.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
+      <h2><%= pluralize(tour.errors.count, "error") %> a empeché cet enregistrement car :</h2>
 
       <ul>
       <% tour.errors.full_messages.each do |message| %>
@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date_debut %>
-    <%= f.datetime_select :date_debut %>
+    <%= f.label :date_debut, 'Date de début du tour' %>
+    <%= f.datetime_select :date_debut%>
   </div>
 
   <div class="field">
-    <%= f.label :date_fin %>
+    <%= f.label :date_fin, 'Date de fin du tour'  %>
     <%= f.datetime_select :date_fin %>
   </div>
 

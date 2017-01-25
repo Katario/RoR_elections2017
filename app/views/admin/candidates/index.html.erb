@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1> Candidates</h1>
+<h1>Liste des candidats</h1>
 
 <table>
   <thead>
     <tr>
       <th>Nom</th>
-      <th>Prenom</th>
-      <th>Affiliation</th>
-      <th>Photo</th>
-      <th>Descriptif</th>
+      <th>Prénom</th>
+      <th>Affiliation politique</th>
+      <th>Photographie</th>
+      <th>Description du candidat</th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -22,9 +22,9 @@
         <td><%= candidate.affiliation %></td>
         <td><%= image_tag  candidate.photo %></td>
         <td><%= candidate.descriptif %></td>
-        <td><%= link_to 'Show', admin_candidate_path(candidate) %></td>
-        <td><%= link_to 'Edit', edit_admin_candidate_path(candidate) %></td>
-        <td><%= link_to 'Destroy', admin_candidate_path(candidate), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir le détail du candidat', admin_candidate_path(candidate) %></td>
+        <td><%= link_to 'Modifier les données du candidat', edit_admin_candidate_path(candidate) %></td>
+        <td><%= link_to 'Supprimer le candidat', admin_candidate_path(candidate), method: :delete, data: { confirm: 'Êtes-vous sur de vouloir supprimer le candidat ? Cette opération est irréversible.' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,7 +32,7 @@
 
 <br>
 
-<%= link_to 'New  Candidate', new_admin_candidate_path %>
+<%= link_to 'Enregistrer un nouveau candidat', new_admin_candidate_path %>
 <%= link_to 'Retour', admin_connexions_path %>
 
 
