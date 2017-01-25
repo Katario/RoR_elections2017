@@ -15,8 +15,10 @@
  */
 
 *, body{
-  font-family: "open_sans",Arial,Helvetica,sans-serif !important
+  font-family: "open_sans",Arial,Helvetica,sans-serif !important;
+  font-weight: 100 !important
 }
+
 .navbar{
   min-height: 90px !important;
 }
@@ -25,4 +27,9 @@
   height: 80px;
 }
 
+.navbar-nav > li > a{
+  padding:35px !important;
+  color:black !important;
+  font-size: 14px !important;
+}
  @import "bootstrap"
