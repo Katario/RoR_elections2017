@@ -6,7 +6,10 @@ class Admin::VotesController < ApplicationController
     @votes = Vote.all
 	@results = Vote.group(:id_candidate).count
 
-	@candidates = Candidate.count
+	@candidates = Candidate.all
+	@candidates.each do |candidate| 
+
+
 
   end
 
