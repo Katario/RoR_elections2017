@@ -1,21 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <% if current_user %>
-  <%= link_to 'Je Vote', candidates_path %>
+  <%= link_to 'Je Vote', action:"vote" %>
 <% else %>
   <%= link_to 'Connexion', new_session_path %>
 <% end %>
 
+<h2>Comment ça marche ?</h2>
+<ul>
+  <li>
+    <p>1. : J'active mon compte en cliquant sur "connexion" et en rentrant mes identifiants reçus par lettre</p>
+    <%= image_tag "mail.png" %>
+  </li>
 
-<h1><%= link_to 'Je vote', action:"vote"%></h1>
+  <li>
+    <p>2. : Je vote pour le candidat de mon choix en cliquant sur le bouton "VOTER" le jour du vote</p>
+    <%= image_tag "voting.png" %>
+  </li>
 
-
-<h2>Bloc légal</h2>
-<p>
-Affichage du bloc légal : bullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshit<br/>
-bullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshit<br/>
-bullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshit<br/>
-</p>
+  <li>
+    <p>3. : Je reviens pour consulter les résultats des élections </p>
+    <%= image_tag "victorious.png" %>
+  </li>
+</ul>
 
 
 <h2>Les candidats</h2>
