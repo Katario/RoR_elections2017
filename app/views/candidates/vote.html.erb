@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>Candidates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Affiliation</th>
+      <th>Photo</th>
+      <th>Descriptif</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @candidates.each do |candidate| %>
+      <tr>
+        <td><%= candidate.nom %></td>
+        <td><%= candidate.prenom %></td>
+        <td><%= candidate.affiliation %></td>
+        <td><%= candidate.photo %></td>
+        <td><%= candidate.descriptif %></td>
+        <td>
+        <%= form_for :vote, :url => {:action=>"create", :controller=>"votes"} do |f| %>
+        <div class="field">
+        <%= f.hidden_field :id_candidate, :value=>123  %>
+        </div>
+        <div class="field">
+        <%= f.hidden_field :code_postal, :value=>123  %>
+        </div>
+        <div class="field">
+        <%= f.hidden_field :bureau_de_vote, :value=>12  %>
+        </div>
+        <div class="field">
+        <%= f.hidden_field :id_tour, :value=>1  %>
+        </div>
+        <div class="actions">
+        <%= f.submit %>
+        </div>
+                <% end %>
+          </td>
+        <td><%= link_to 'Show', candidate_path(candidate) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+
+</table>
