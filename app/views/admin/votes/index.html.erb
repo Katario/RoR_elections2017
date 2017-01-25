@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Votes</h1>
-
       
 <table>
   <thead>
@@ -15,7 +14,10 @@
  <% @results.each do |result| %>
 
       <tr>
-        <td><%= result[0] %></td>
+        <td><%= @candidates.find(result[0]).nom %></td>
+        <td><%= @candidates.find(result[0]).prenom %></td>
+
+
         <td><%= (result[1] * 100.0 / @votes.count).round(2) %></td>
       </tr>
     <% end %>

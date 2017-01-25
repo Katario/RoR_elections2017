@@ -5,12 +5,7 @@ class Admin::VotesController < ApplicationController
   def index
     @votes = Vote.all
 	@results = Vote.group(:id_candidate).count
-
 	@candidates = Candidate.all
-	@candidates.each do |candidate| 
-
-
-
   end
 
 end
