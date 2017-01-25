@@ -1,12 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Votes</h1>
-
+       
 <table>
-  
+  <thead>
+    <tr>
+      <th>Candidat</th>
+      <th>Résultat</th>
+    </tr>
+  </thead>
+
   <tbody>
-   <div>Affichage des résultats</div>
+ <% @results.each do |result| %>
+
+      <tr>
+        <td><%= result[0] %></td>
+        <td><%= (result[1] * 100.0 / @votes.count).round(2) %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
 <br>
+
+<%= link_to 'New Vote', new_vote_path %>

@@ -4,6 +4,11 @@ class Admin::VotesController < ApplicationController
   # GET /votes.json
   def index
     @votes = Vote.all
+	@results = Vote.group(:id_candidate).count
+
+	@candidates = Candidate.count
+
   end
 
 end
+
