@@ -8,17 +8,6 @@
   </head>
 
   <body>
-    <div id="user_nav">
-
-<% if current_user %>
-  Logged In as <%= current_user.name %> <%= current_user.forname %>
-  <%= link_to "log out", log_out_path %>
-<% end %>
-<% if current_admin %>
-  Logged In as <%= current_admin.login %>
-  <%= link_to "admin_log out", admin_log_out_path %>
-<% end %>
-</div>
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -44,11 +33,25 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="container">
+
+<div id="user_nav">
+<% if current_user %>
+Logged In as <%= current_user.name %> <%= current_user.forname %>
+<%= link_to "log out", log_out_path %>
+<% end %>
+<% if current_admin %>
+Logged In as <%= current_admin.login %>
+<%= link_to "admin_log out", admin_log_out_path %>
+<% end %>
+</div>
+
 <% flash.each do |name, msg| %>
 <%= content_tag :div, msg, :id => "flash_(name)" %>
 <% end %>
 
 
     <%= yield %>
+</div>
   </body>
 </html>

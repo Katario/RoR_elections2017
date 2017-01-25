@@ -32,4 +32,46 @@
   color:black !important;
   font-size: 16px !important;
 }
+
+.btn{
+  background-color: #0B6BA8 !important;
+}
+
+#homeButton{
+  text-align: center;
+}
+a.btn:visited {
+color:white !important;
+}
+
+.candidates img{
+  width: 30%;
+  float:left;
+  margin-bottom: 40px;
+
+}
+
+.candidates h3{
+  color: #0B6BA8;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.candidates p{
+  color: #0B6BA8;
+  text-align: center;
+}
+
+
+.candidates {
+  padding : 20px;
+}
+
+.candidates .divider{
+  width: 80%;
+  margin: auto;
+  height: 1px;
+  background-color: #0B6BA8;
+  clear: both;
+}
  @import "bootstrap"

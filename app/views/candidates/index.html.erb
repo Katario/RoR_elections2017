@@ -1,34 +1,37 @@
+
 <p id="notice"><%= notice %></p>
 
-<% if current_user %>
-  <%= link_to 'Je Vote', candidates_path %>
-<% else %>
-  <%= link_to 'Connexion', new_session_path %>
-<% end %>
+<div id="homeButton">
+  <% if current_user %>
+    <% if cookies[:tour] %>
+      <%= link_to 'Je Vote', { :action => "vote"}, :class => "btn btn-lg btn-primary" %>
+    <% else %>
+      L'election est fermée au vote
+    <% end %>
+  <% else %>
+  <%= link_to 'Connexion', new_session_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
+</div>
 
-
-<h1><%= link_to 'Je vote', action:"vote"%></h1>
-
-
-<h2>Bloc légal</h2>
-<p>
-Affichage du bloc légal : bullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshit<br/>
-bullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshit<br/>
-bullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshit<br/>
-</p>
-
+<div class="panel panel-default">
+  <div class="panel-heading">Bloc légal</div>
+  <div class="panel-body">
+    Affichage du bloc légal : bullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshit<br/>
+    bullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshit<br/>
+    bullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshitbullshit<br/>
+  </div>
+</div>
 
 <h2>Les candidats</h2>
-<% @candidates.each do |candidate| %>
-  <div>
-      <%= candidate.prenom %> <strong><%= candidate.nom %></strong>
+<div class="row">
+  <% @candidates.each do |candidate| %>
+  <div class="col-sm-12 col-md-6 candidates">
+      <%= image_tag candidate.photo %>
+      <%= link_to root_path do %>
+        <h3><%= candidate.prenom %> <strong><%= candidate.nom %></strong></h3>
+        <p><%= candidate.affiliation %></p>
+      <% end %>
+      <div class="divider"> </div>
   </div>
-
-  <div><%= image_tag candidate.photo %></div>
-
-  <div><%= candidate.affiliation %></div>
-
-  <!-- lien vers un candidat -->
-  <div><%= link_to 'Show',
-      candidate_path(candidate)%></div>
-<% end %>
+  <% end %>
+</div>
