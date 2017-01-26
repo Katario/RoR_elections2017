@@ -22,12 +22,13 @@
       <% if !current_admin %>
       <ul class="nav navbar-nav navbar-right">
         <li>  <%= link_to "Accueil", candidates_path %></li>
+        <li>  <%= link_to "Résultats", votes_path %> </li>
         <% if current_user %>
+        <li>  <%= link_to "Voter", election_path %> </li>
         <li>  <%= link_to "Se déconnecter", log_out_path %></li>
         <% else %>
         <li>  <%= link_to "Se connecter", log_in_path %></li>
         <% end %>
-        <li>  <%= link_to "Voter", candidates_path %> </li>
       </ul>
     <% else %>
     <ul class="nav navbar-nav navbar-right">
