@@ -19,12 +19,12 @@ class Admin::CandidatesController < ApplicationController
           @candidate1 = @votes[0][0]
           @candidate2 = @votes[1][0]
           @candidates = Candidate.where('id= ? OR id= ?', @candidate1, @candidate2 )
-         
+
         else
           @vote_status = @user.tour1
           @candidates = Candidate.all
         end
-     else    
+    end
   end
 
   # GET /candidates/1
@@ -43,6 +43,8 @@ class Admin::CandidatesController < ApplicationController
   # GET /candidates/1/edit
   def edit
     is_admin_logged
+    @candidate = Candidate.find(params[:id])
+
   end
 
   # POST /candidates
@@ -67,6 +69,8 @@ class Admin::CandidatesController < ApplicationController
   def update
     is_admin_logged
     respond_to do |format|
+      @candidate = Candidate.find(params[:id])
+
       if @candidate.update(candidate_params)
         format.html { redirect_to admin_candidates_path, notice: 'Le candidat a été correctement modifié' }
         format.json { render :show, status: :ok, location: admin_candidates_path }

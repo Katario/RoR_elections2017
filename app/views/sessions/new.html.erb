@@ -16,8 +16,9 @@
         <%= password_field_tag :encrypted_code, nil, :class => "form-control"%>
       </div>
     </div>
+    <p id="note"> Vous trouverez votre code confidentielle dans la lettre que l'Etat vous a envoyé</p>
     <div class="boutons">
-      <%= submit_tag :Login, :class => "btn btn-primary" %>
+      <%= submit_tag "Se connecter", :class => "btn btn-primary" %>
     </div>
     <% end %>
   </div>

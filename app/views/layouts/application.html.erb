@@ -44,7 +44,7 @@
     <% if current_page?(root_path) || current_page?(candidates_path) %>
     <div id="user_nav">
       <% if current_user %>
-      <h1>Bonjour <%= current_user.name %> <%= current_user.forname %> !</h1>
+      <h1>Bonjour <%= current_user.forname %> <%= current_user.name %> !</h1>
       <% end %>
       <% if current_admin %>
       <h1>Bonjour <%= current_admin.login %> !</h1>

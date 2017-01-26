@@ -6,18 +6,19 @@
     <%= form_for @user do |f| %>
 
     <div class="form-group">
-      <%= f.label :encrypted_code, "Nouveau Code Confidentiel", :class => "col-sm-4 control-label" %>
+      <%= f.label :encrypted_code, "Nouveau Code", :class => "col-sm-4 control-label" %>
       <div class="col-sm-6">
         <%= f.password_field :encrypted_code, :class => "form-control"%>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :encrypted_code2, "Validation de Code Confidentiel", :class => "col-sm-4 control-label" %>
+      <%= f.label :encrypted_code2, "Validation de Code", :class => "col-sm-4 control-label" %>
       <div class="col-sm-6">
         <%= f.password_field :encrypted_code2, :class => "form-control"%>
       </div>
     </div>
+    <p id="note"> Vous êtes priés de garder votre nouveau code précieusement et en toute confidentialité</p>
 
     <div class="boutons">
       <%= f.submit "modifier",  :class => "btn btn-primary" %>
