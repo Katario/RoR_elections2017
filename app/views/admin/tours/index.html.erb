@@ -26,5 +26,8 @@
 
 <br>
 
-<%= link_to 'Créer un nouveau tour', new_admin_tour_path %>
+<!-- Seulement si il n'y a pas de tours / s'il n'y a qu'un tour !-->
+<% if @lastTour < 3 %>
+  <%= link_to 'Créer un nouveau tour', new_admin_tour_path %>
+<% end %>
 <%= link_to 'Retour', admin_connexions_path %>
