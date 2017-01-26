@@ -1,12 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-heading">Résultats Tour 1</div>
+  <div class="panel-body">
+    <ul class="list-group result">
+      <li class="list-group-item grey">
+        <div class="item">Candidat</div>
+        <div class="item">Résultat</div>
+      </li>
+      <% @results.each do |result| %>
+      <li class="list-group-item ">
+        <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
+        <div class="item"><%= (result[1] * 100.0 / @votes.count).round(2) %>%</div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<h1>Votes</h1>
-
-<table>
-  
-  <tbody>
-   <div>Affichage des résultats</div>
-  </tbody>
-</table>
-
-<br>
+<div class="panel panel-default">
+  <div class="panel-heading">Résultats Tour 2</div>
+  <div class="panel-body">
+    <ul class="list-group result">
+      <li class="list-group-item grey">
+        <div class="item">Candidat</div>
+        <div class="item">Résultat</div>
+      </li>
+      <% @results.each do |result| %>
+      <li class="list-group-item ">
+        <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
+        <div class="item"><%= (result[1] * 100.0 / @votes.count).round(2) %>%</div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
