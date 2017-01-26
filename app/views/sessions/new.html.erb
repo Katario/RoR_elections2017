@@ -2,7 +2,7 @@
   <%= form_tag sessions_path do %>
     <p> Nom de famille complet : </br> <%= text_field_tag :name%> </p>
     <p> Code : </br> <%= password_field_tag :encrypted_code%> </p>
-    <%= submit_tag :Login %>
+    <%= submit_tag :Login, "Connexion" %>
   <% end %>
 
 <%= link_to 'Retour', :back  %>
