@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
-<h1>Candidates</h1>
+<h1>Choisissez vos votes</h1>
 
 <div class="row">
   <div class="panel panel-default">
@@ -13,6 +13,7 @@
       <%= link_to candidate_path(candidate) do %>
         <h3><%= candidate.prenom %> <strong><%= candidate.nom %></strong></h3>
         <p><%= candidate.affiliation %></p>
+
         <%= form_for :vote, :url => {:action=>"create", :controller=>"votes"} do |f| %>
         <div class="field">
         <%= f.hidden_field :id_candidate, :value=> candidate.id  %>
@@ -36,6 +37,5 @@
   </div>
   <% end %>
 </div>
-
-
-<%= link_to 'Retour à la page d\'accueil', candidates_path %>
+</div>
+</div>

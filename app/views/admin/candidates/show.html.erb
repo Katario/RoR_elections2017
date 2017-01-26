@@ -13,5 +13,6 @@
   <%= @candidate.descriptif %>
 </p>
 <%= image_tag  @candidate.photo %>
-<%= link_to 'Edit', edit_candidate_path(@candidate) %> |
-<%= link_to 'Back', admin_candidates_path %>
+
+<%= link_to 'Modifier le candidat', edit_candidate_path(@candidate) %> |
+<%= link_to 'Retour à la liste des candidats', admin_candidates_path %>

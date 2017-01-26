@@ -1,5 +1,7 @@
-
-
+<%= form_for([:admin, @admin]) do |f| %>
+  <% if @admin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin.errors.count, "error") %> a empeché cet enregistrement car :</h2>
 
     <%=  form_for([:admin, @admin], :html => {:class => 'form-horizontal'}) do |f| %>
     <% if @admin.errors.any? %>
