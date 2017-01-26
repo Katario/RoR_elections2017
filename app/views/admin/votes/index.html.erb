@@ -1,18 +1,66 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-heading">Résultats Tour 1</div>
+  <div class="panel-body">
+    <ul class="list-group result">
+      <li class="list-group-item grey">
+        <div class="item">Candidat</div>
+        <div class="item">Résultat</div>
+      </li>
+      <% @results.each do |result| %>
+      <li class="list-group-item ">
+        <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
+        <div class="item"><%= (result[1] * 100.0 / @votes.count).round(2) %>%</div>
+      </li>
+      <% end %>
+    </ul>
+    <div class="boutons">
+    <%= link_to 'Valider les résultats', nil, :class => "btn btn-primary"  %>
+    </div>
+  </div>
+</div>
 
-<h1>Votes</h1>
-      
-<table>
-  <thead>
-    <tr>
-      <th>Candidat</th>
-      <th>Résultat</th>
-    </tr>
-  </thead>
+<div class="panel panel-default">
+  <div class="panel-heading">Résultats Tour 2</div>
+  <div class="panel-body">
+    <ul class="list-group result">
+      <li class="list-group-item grey">
+        <div class="item">Candidat</div>
+        <div class="item">Résultat</div>
+      </li>
+      <% @results.each do |result| %>
+      <li class="list-group-item ">
+        <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
+        <div class="item"><%= (result[1] * 100.0 / @votes.count).round(2) %>%</div>
+      </li>
+      <% end %>
+    </ul>
+    <div class="boutons">
+    <%= link_to 'Valider les résultats', nil, :class => "btn btn-primary"  %>
+    </div>
+  </div>
+</div>
 
-  <tbody>
- <% @results.each do |result| %>
 
+<<<<<<< HEAD
+    <ul class="list-group ">
+      <li class="list-group-item grey">
+        <div class="item">Candidat</div>
+        <div class="item">Tour</div>
+        <div class="item">Code Postal</div>
+        <div class="item">Bureau de vote</div>
+        <div class="item">Date de vote</div>
+      </li>
+      <% @votes.each do |vote| %>
+      <li class="list-group-item ">
+        <div class="item"><%= @candidates.find(vote.id_candidate).prenom %> <%= @candidates.find(vote.id_candidate).nom %> </div>
+        <div class="item"><%= vote.id_tour %></div>
+        <div class="item"><%= vote.code_postal %></div>
+        <div class="item"><%= vote.bureau_de_vote %></div>
+        <div class="item"><%= vote.created_at %></div>
+      </li>
+      <% end %>
+    </ul>
+=======
       <tr>
         <td><%= @candidates.find(result[0]).nom %></td>
         <td><%= @candidates.find(result[0]).prenom %></td>
@@ -26,4 +74,5 @@
 
 <br>
 
-<%= link_to 'New Vote', new_vote_path %>
+<%= link_to 'Nouveau vote', new_vote_path %>
+>>>>>>> dev_hadrien

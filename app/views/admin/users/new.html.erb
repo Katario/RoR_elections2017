@@ -1,17 +1,55 @@
-<h1>Sign Up</h1>
-  <%= form_for([:admin, @user]) do |f| %>
-    <p> Nom:</br> <%= f.text_field :name%> </p>
-    <p> Prenom:</br> <%= f.text_field :forname%> </p>
-    <p> Code:</br> <%= f.password_field :encrypted_code%> </p>
-    <p> Code Postal:</br> <%= f.text_field :postal%> </p>
-    <p> Bureau de poste:</br> <%= f.text_field :bureau%> </p>
+<<<<<<< HEAD
+<div class="panel panel-default formulaire">
+  <div class="panel-heading">
+    Ajouter Electeur
+  </div>
+  <div class="panel-body">
+      <%=  form_for([:admin, @user], :html => {:class => 'form-horizontal'}) do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(user.errors.count, "error") %> prohibited this admin from being saved:</h2>
 
-    <%= f.submit :Signup %>
-  <% end %>
-  <% if @user.errors.any? %>
-    <ul class="Signup_Errors">
-    <% for message_error in @user.errors.full_messages %>
-      <li>* <%= message_error %></li>
-    <% end %>
-    </ul>
-  <% end %>
+          <ul>
+          <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :name, "Nom", :class => "col-sm-4 control-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :name, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :forname, "Prénom", :class => "col-sm-4 control-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :forname, :class => "form-control"%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :code, "Code Confidentiel", :class => "col-sm-4 control-label" %>
+        <div class="col-sm-6">
+          <%= f.password_field :code, :class => "form-control"%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :postal, "Code Postal", :class => "col-sm-4 control-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :postal, :class => "form-control"%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :bureau, "Bureau de Vote", :class => "col-sm-4 control-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :bureau, :class => "form-control"%>
+        </div>
+      </div>
+      <div class="boutons">
+        <%= f.submit "ajouter", :class => "btn btn-primary" %>
+      </div>
+      <% end %>
+  </div>
+</div>
