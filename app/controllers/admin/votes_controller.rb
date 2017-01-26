@@ -15,7 +15,7 @@ class Admin::VotesController < ApplicationController
   end
 
   def validation2
-  	 Vote.where('id_tour = 2').update_all(vote_validation: "1")
+  	 Vote.where('id_tour = 2').update_all(vote_validation: "2")
   	 redirect_to action: "index"
   end
 
