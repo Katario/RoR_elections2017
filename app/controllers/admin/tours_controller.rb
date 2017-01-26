@@ -6,6 +6,11 @@ class Admin::ToursController < ApplicationController
   def index
     is_admin_logged
     @tours = Tour.all
+    if Tour.last.nil?
+      @lastTour = 0
+    else
+      @lastTour = Tour.last.id
+    end
   end
 
   # GET /tours/1
