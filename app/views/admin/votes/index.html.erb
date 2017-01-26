@@ -6,10 +6,10 @@
         <div class="item">Candidat</div>
         <div class="item">Résultat</div>
       </li>
-      <% @results.each do |result| %>
+      <% @resultst1.each do |result| %>
       <li class="list-group-item ">
         <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
-        <div class="item"><%= (result[1] * 100.0 / @votes.count).round(2) %>%</div>
+        <div class="item"><%= (result[1] * 100.0 / @votest1.count).round(2) %>%</div>
       </li>
       <% end %>
     </ul>
@@ -27,10 +27,10 @@
         <div class="item">Candidat</div>
         <div class="item">Résultat</div>
       </li>
-      <% @results.each do |result| %>
+      <% @resultst2.each do |result| %>
       <li class="list-group-item ">
         <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
-        <div class="item"><%= (result[1] * 100.0 / @votes.count).round(2) %>%</div>
+        <div class="item"><%= (result[1] * 100.0 / @votest2.count).round(2) %>%</div>
       </li>
       <% end %>
     </ul>
