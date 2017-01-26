@@ -5,6 +5,7 @@ class Admin::AdminsController < ApplicationController
   # GET /admins.json
   def index
     is_admin_logged
+    is_admin_super_admin
     @admins = Admin.all
   end
 
@@ -12,16 +13,19 @@ class Admin::AdminsController < ApplicationController
   # GET /admins/1.json
   def show
     is_admin_logged
+    is_admin_super_admin
   end
 
   # GET /admins/new
   def new
     is_admin_logged
+    is_admin_super_admin
     @admin = Admin.new
   end
 
   # GET /admins/1/edit
   def edit
+    is_admin_super_admin
     is_admin_logged
   end
 
@@ -29,6 +33,7 @@ class Admin::AdminsController < ApplicationController
   # POST /admins.json
   def create
     is_admin_logged
+    is_admin_super_admin
     @admin = Admin.new(admin_params)
 
     respond_to do |format|
@@ -46,6 +51,7 @@ class Admin::AdminsController < ApplicationController
   # PATCH/PUT /admins/1.json
   def update
     is_admin_logged
+    is_admin_super_admin
     respond_to do |format|
       if @admin.update(admin_params)
         format.html { redirect_to admin_admins_path, notice: 'Admin was successfully updated.' }
@@ -61,6 +67,7 @@ class Admin::AdminsController < ApplicationController
   # DELETE /admins/1.json
   def destroy
     is_admin_logged
+    is_admin_super_admin
     @admin.destroy
     respond_to do |format|
       format.html { redirect_to admin_admins_path, notice: 'Admin was successfully destroyed.' }

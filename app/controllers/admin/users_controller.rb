@@ -4,8 +4,8 @@ class Admin::UsersController < ApplicationController
     @users = User.all
   end
 
-  # GET /tours/1
-  # GET /tours/1.json
+  # GET /users/1
+  # GET /users/1.json
   def show
     is_admin_logged
     @user = User.find(params[:id])

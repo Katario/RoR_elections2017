@@ -40,39 +40,21 @@
   </div>
 </div>
 
-
-<<<<<<< HEAD
-    <ul class="list-group ">
-      <li class="list-group-item grey">
-        <div class="item">Candidat</div>
-        <div class="item">Tour</div>
-        <div class="item">Code Postal</div>
-        <div class="item">Bureau de vote</div>
-        <div class="item">Date de vote</div>
-      </li>
-      <% @votes.each do |vote| %>
-      <li class="list-group-item ">
-        <div class="item"><%= @candidates.find(vote.id_candidate).prenom %> <%= @candidates.find(vote.id_candidate).nom %> </div>
-        <div class="item"><%= vote.id_tour %></div>
-        <div class="item"><%= vote.code_postal %></div>
-        <div class="item"><%= vote.bureau_de_vote %></div>
-        <div class="item"><%= vote.created_at %></div>
-      </li>
-      <% end %>
-    </ul>
-=======
-      <tr>
-        <td><%= @candidates.find(result[0]).nom %></td>
-        <td><%= @candidates.find(result[0]).prenom %></td>
-
-
-        <td><%= (result[1] * 100.0 / @votes.count).round(2) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Nouveau vote', new_vote_path %>
->>>>>>> dev_hadrien
+<ul class="list-group ">
+  <li class="list-group-item grey">
+    <div class="item">Candidat</div>
+    <div class="item">Tour</div>
+    <div class="item">Code Postal</div>
+    <div class="item">Bureau de vote</div>
+    <div class="item">Date de vote</div>
+  </li>
+  <% @votes.each do |vote| %>
+  <li class="list-group-item ">
+    <div class="item"><%= @candidates.find(vote.id_candidate).prenom %> <%= @candidates.find(vote.id_candidate).nom %> </div>
+    <div class="item"><%= vote.id_tour %></div>
+    <div class="item"><%= vote.code_postal %></div>
+    <div class="item"><%= vote.bureau_de_vote %></div>
+    <div class="item"><%= vote.created_at %></div>
+  </li>
+  <% end %>
+</ul>

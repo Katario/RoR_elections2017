@@ -1,5 +1,6 @@
 class Admin::ConnexionsController < ApplicationController
   def index
+    @current_admin_statut = current_admin.statut
   end  
 
   def new

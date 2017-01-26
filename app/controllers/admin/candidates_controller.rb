@@ -5,6 +5,7 @@ class Admin::CandidatesController < ApplicationController
   # GET /candidates.json
   def index
     is_admin_logged
+    is_admin_super_admin
     @candidates = Candidate.all
   end
 
@@ -18,24 +19,28 @@ class Admin::CandidatesController < ApplicationController
   # GET /candidates/1.json
   def show
     is_admin_logged
+    is_admin_super_admin
     @candidate = Candidate.find(params[:id])
   end
 
   # GET /candidates/new
   def new
     is_admin_logged
+    is_admin_super_admin
     @candidate = Candidate.new
   end
 
   # GET /candidates/1/edit
   def edit
     is_admin_logged
+    is_admin_super_admin
   end
 
   # POST /candidates
   # POST /candidates.json
   def create
     is_admin_logged
+    is_admin_super_admin
     @candidate = Candidate.new(candidate_params)
 
     respond_to do |format|
@@ -53,6 +58,7 @@ class Admin::CandidatesController < ApplicationController
   # PATCH/PUT /candidates/1.json
   def update
     is_admin_logged
+    is_admin_super_admin
     respond_to do |format|
       if @candidate.update(candidate_params)
         format.html { redirect_to admin_candidates_path, notice: ' candidate was successfully updated.' }

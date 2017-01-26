@@ -40,4 +40,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def is_admin_super_admin
+    if !session[:admin_statut] == 1
+      redirect_to :controller => 'connexions', :action => 'index', :notice => "Vous n'avez pas les droits nécéssaires !"
+    end
+  end
+
 end
