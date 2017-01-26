@@ -1,6 +1,11 @@
-<h1>Editing Admin</h1>
-
+<div class="panel panel-default formulaire">
+  <div class="panel-heading">
+    Modifier Admin
+  </div>
+  <div class="panel-body">
 <%= render 'form', admin: @admin %>
+</div>
+</div>
 
-<%= link_to 'Show', admin_admins_path %> |
-<%= link_to 'Back', admin_admins_path %>
+<%= link_to 'Show', admin_admins_path, :class => "btn btn-primary" %> |
+<%= link_to 'Back', admin_admins_path, :class => "btn btn-primary" %>

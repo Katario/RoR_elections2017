@@ -1,32 +1,25 @@
-<p id="notice"><%= notice %></p>
+<h1> Electeurs </h1>
+<div class="center">
+<%= link_to 'Ajouter un Electeur', new_admin_user_path , :class => "btn btn-primary" %>
+<%= link_to 'Retour', admin_connexions_path , :class => "btn btn-primary" %>
+</div>
+<ul class="list-group">
+  <li class="list-group-item grey">
+    <div class="item">Nom</div>
+    <div class="item">Prénom</div>
+    <div class="item">Code Postal</div>
+    <div class="item">Bureau de Vote</div>
+  </li>
+  <% @users.each do |user| %>
+  <li class="list-group-item">
+    <div class="item"><%= user.name %></div>
+    <div class="item"><%= user.forname %></div>
+    <div class="item"><%= user.postal %></div>
+    <div class="item"><%= user.bureau %></div>
+    <div class="buttons">
+    <%= link_to 'Détail', admin_user_path(user), :class => "btn btn-primary" %>
+    </div>
+  </li>
+  <% end %>
 
-<h1>Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Prenom</th>
-      <th>Code Postal</th>
-      <th>Bureau de Vote</th>
-  <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.forname %></td>
-        <td><%= user.postal %></td>
-        <td><%= user.bureau %></td>
-        <td><%= link_to 'Show', admin_user_path(user) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_admin_user_path %>
-<%= link_to 'Retour', admin_connexions_path %>
+</ul>

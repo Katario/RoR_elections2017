@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170125161743) do
 
   create_table "admins", force: :cascade do |t|
@@ -45,9 +44,9 @@ ActiveRecord::Schema.define(version: 20170125161743) do
     t.datetime "updated_at",     null: false
     t.string   "postal"
     t.integer  "bureau"
+    t.boolean  "active"
     t.boolean  "tour1"
     t.boolean  "tour2"
-    t.boolean  "active"
     t.string   "forname"
   end
 

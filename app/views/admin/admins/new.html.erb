@@ -1,5 +1,10 @@
-<h1>New Admin</h1>
+<div class="panel panel-default formulaire">
+  <div class="panel-heading">
+    Ajouter Admin
+  </div>
+  <div class="panel-body">
+  <%= render 'form', admin: [:admin, @admin] %>
+  </div>
+</div>
 
-<%= render 'form', admin: [:admin, @admin] %>
-
-<%= link_to 'Back', admin_admins_path %>
+<%= link_to 'Back', admin_admins_path, :class => "btn btn-primary" %>
