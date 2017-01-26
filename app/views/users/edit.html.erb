@@ -1,19 +1,19 @@
 <div class="panel panel-default formulaire">
   <div class="panel-heading">
-    Modifier son mot de passe
+    Modifier son Code Confidentiel
   </div>
   <div class="panel-body">
     <%= form_for @user do |f| %>
 
     <div class="form-group">
-      <%= f.label :encrypted_code, "Nouveau Mot de passe", :class => "col-sm-4 control-label" %>
+      <%= f.label :encrypted_code, "Nouveau Code Confidentiel", :class => "col-sm-4 control-label" %>
       <div class="col-sm-6">
         <%= f.password_field :encrypted_code, :class => "form-control"%>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :encrypted_code2, "Validation de passe", :class => "col-sm-4 control-label" %>
+      <%= f.label :encrypted_code2, "Validation de Code Confidentiel", :class => "col-sm-4 control-label" %>
       <div class="col-sm-6">
         <%= f.password_field :encrypted_code2, :class => "form-control"%>
       </div>

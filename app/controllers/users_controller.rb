@@ -17,14 +17,14 @@ class UsersController < ApplicationController
 
           @user = User.find(params[:id])
           if @user.update(params_user)
-            format.html { redirect_to root_path, notice: 'Votre code a été correctement modifié' }
+            format.html { redirect_to root_path, notice: 'Votre Code Confidentiel a été correctement modifié' }
             format.json { render :index, status: :ok, location: root_path }
           else
             format.html { render :edit }
             format.json { render json: @admin.errors, status: :unprocessable_entity }
           end
         else
-          format.html { redirect_to root_path, notice: 'Les deux mots de passes sont différents' }
+          format.html { redirect_to root_path, notice: 'Les deux Codes Confidentiels sont différents' }
           format.json { render :index, status: :ok, location: root_path}
         end
       end
