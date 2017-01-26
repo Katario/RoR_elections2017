@@ -17,18 +17,24 @@
          <%= image_tag "logoelec.png"%>
       <% end %>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <% if !current_admin %>
       <ul class="nav navbar-nav navbar-right">
         <li>  <%= link_to "Accueil", candidates_path %></li>
         <% if current_user %>
-        <li>  <%= link_to "Se désidentifier", log_out_path %></li>
+        <li>  <%= link_to "Se déconnecter", log_out_path %></li>
         <% else %>
-        <li>  <%= link_to "S'identifier", log_in_path %></li>
+        <li>  <%= link_to "Se connecter", log_in_path %></li>
         <% end %>
         <li>  <%= link_to "Voter", candidates_path %> </li>
       </ul>
+    <% else %>
+    <ul class="nav navbar-nav navbar-right">
+      <li>  <%= link_to "Accueil", admin_connexions_path %></li>
+      <li>  <%= link_to "Se déconnecter", admin_log_out_path %></li>
+    </ul>
+    <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
