@@ -17,20 +17,36 @@ class VotesController < ApplicationController
 
   # POST /votes
   # POST /votes.json
-  def create
+ def create
     is_logged
     @vote = Vote.new(vote_params)
-
-    respond_to do |format|
+    @user = current_user
+ 
+     respond_to do |format|
       if @vote.save
+       if @vote.id_tour == 1
+        @user.tour1 = 1
+        @vote.save
+        @user.save
         format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
         format.json { render :show, status: :created, location: @vote }
-      else
+
+      elsif @vote.id_tour == 2
+        @user.tour2 = 1
+        @vote.save
+        @user.save
+        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
+        format.json { render :show, status: :created, location: @vote }  
+        
+       else
         format.html { render :new }
         format.json { render json: @vote.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+       end
+     end
+     
+     end
+
+   end
 
 
 
