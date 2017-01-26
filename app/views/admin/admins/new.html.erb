@@ -1,5 +1,10 @@
-<h1>Créer un nouveau compte adminstrateur</h1>
+<div class="panel panel-default formulaire">
+  <div class="panel-heading">
+    Ajouter Admin
+  </div>
+  <div class="panel-body">
+  <%= render 'form', admin: [:admin, @admin] %>
+  </div>
+</div>
 
-<%= render 'form', admin: [:admin, @admin] %>
-
-<%= link_to 'Retour à la liste des administrateurs', admin_admins_path %>
+<%= link_to 'Back', admin_admins_path, :class => "btn btn-primary" %>

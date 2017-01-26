@@ -1,36 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-heading">Résultats Tour 1</div>
+  <div class="panel-body">
+    <ul class="list-group result">
+      <li class="list-group-item grey">
+        <div class="item">Candidat</div>
+        <div class="item">Résultat</div>
+      </li>
+      <% @results.each do |result| %>
+      <li class="list-group-item ">
+        <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
+        <div class="item"><%= (result[1] * 100.0 / @votes.count).round(2) %>%</div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<h1>Votes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Id candidate</th>
-      <th>Code postal</th>
-      <th>Bureau de vote</th>
-      <th>Id tour</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-<<<<<<< HEAD
-   <div>Affichage des résultats : </div>
-=======
-    <% @votes.each do |vote| %>
-      <tr>
-        <td><%= vote.id_candidate %></td>
-        <td><%= vote.code_postal %></td>
-        <td><%= vote.bureau_de_vote %></td>
-        <td><%= vote.id_tour %></td>
-        <td><%= link_to 'Show', vote %></td>
-        <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
-      </tr>
-    <% end %>
->>>>>>> c7a2aedb8e1d278e3c2d3283efd26fc0eefc0d60
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Vote', new_vote_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">Résultats Tour 2</div>
+  <div class="panel-body">
+    <ul class="list-group result">
+      <li class="list-group-item grey">
+        <div class="item">Candidat</div>
+        <div class="item">Résultat</div>
+      </li>
+      <% @results.each do |result| %>
+      <li class="list-group-item ">
+        <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
+        <div class="item"><%= (result[1] * 100.0 / @votes.count).round(2) %>%</div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
