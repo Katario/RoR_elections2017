@@ -35,7 +35,7 @@ class VotesController < ApplicationController
           @vote.save
           @user.save
           format.html { redirect_to @vote, notice: 'Votre vote a été pris en compte' }
-          format.json { render :show, status: :created, location: @vote }
+          format.json { render :show, status: :created, location: root_path }
 
         else
           format.html { render :new }
