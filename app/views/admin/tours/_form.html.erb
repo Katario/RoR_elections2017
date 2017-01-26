@@ -5,10 +5,10 @@
       <%=  form_for([:admin, @tour], :html => {:class => 'form-horizontal'}) do |f| %>
       <% if @tour.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
+          <h2><%= pluralize(@tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
 
           <ul>
-          <% tour.errors.full_messages.each do |message| %>
+          <% @tour.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
           </ul>
