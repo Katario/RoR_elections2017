@@ -24,7 +24,7 @@ class Admin::CandidatesController < ApplicationController
           @vote_status = @user.tour1
           @candidates = Candidate.all
         end
-     else    
+      end 
   end
 
   # GET /candidates/1
