@@ -10,7 +10,6 @@
   <% @candidates.each do |candidate| %>
   <div class="col-sm-12 col-md-6 candidates">
       <%= image_tag candidate.photo %>
-      <%= link_to candidate_path(candidate) do %>
         <h3><%= candidate.prenom %> <strong><%= candidate.nom %></strong></h3>
         <p><%= candidate.affiliation %></p>
 
@@ -32,7 +31,6 @@
         <%= f.submit "Voter", data: { confirm: data }, :class => "btn btn-primary" %>
         </div>
         <% end %>
-      <% end %>
       <div class="divider"> </div>
   </div>
   <% end %>
