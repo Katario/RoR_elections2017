@@ -15,7 +15,6 @@
     <div class="item"><%= tour.date_fin %></div>
     <div class="item">validé ?</div>
     <div class="buttons">
-    <%= link_to 'Détail', admin_tour_path(tour), :class => "btn btn-primary" %>
     <%= link_to 'Modifier', edit_admin_tour_path(tour), :class => "btn btn-primary" %>
     <%= link_to 'Supprimer',admin_tour_path(tour), method: :delete, data: { confirm: 'Etes-vous sûr?' }, :class => "btn btn-primary" %>
     </div>
