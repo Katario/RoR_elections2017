@@ -38,7 +38,7 @@ class Admin::ToursController < ApplicationController
 
     respond_to do |format|
       if @tour.save
-        format.html { redirect_to admin_tours_path, notice: 'Tour was successfully created.' }
+        format.html { redirect_to admin_tours_path, notice: 'Le tour a été correctement créé' }
         format.json { render :show, status: :created, location: admin_tours_path }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class Admin::ToursController < ApplicationController
     is_admin_logged
     respond_to do |format|
       if @tour.update(tour_params)
-        format.html { redirect_to admin_tours_path, notice: 'Tour was successfully updated.' }
+        format.html { redirect_to admin_tours_path, notice: 'Le tour a été correctement modifié' }
         format.json { render :show, status: :ok, location: admin_tours_path }
       else
         format.html { render :edit }
@@ -68,19 +68,19 @@ class Admin::ToursController < ApplicationController
     is_admin_logged
     @tour.destroy
     respond_to do |format|
-      format.html { redirect_to admin_tours_path, notice: 'Tour was successfully destroyed.' }
+      format.html { redirect_to admin_tours_path, notice: 'Le tour a été correctement supprimé' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tour
-      @tour = Tour.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tour
+    @tour = Tour.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def tour_params
-      params.require(:tour).permit(:date_debut, :date_fin)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def tour_params
+    params.require(:tour).permit(:date_debut, :date_fin)
+  end
 end

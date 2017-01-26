@@ -3,21 +3,28 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.authenticate(params[:name], params[:encrypted_code])
+    @password = Digest::SHA1.hexdigest(params[:encrypted_code])
+
+    user = User.authenticate(params[:name], @password)
     if user
-      user.active = 1
-      user.save
-      session[:user_id] = user.id
-      redirect_to candidates_path, :notice =>'Logged in!'
+      if !user.active
+        user.active = 1
+        user.save
+        session[:user_id] = user.id
+        redirect_to edit_user_path(user), :notice =>'Vous êtes correctement connecté'
+      else
+        session[:user_id] = user.id
+        redirect_to candidates_path, :notice =>'Vous êtes correctement connecté'
+      end
     else
-      flash.now.alert = "Invalid email or password"
+      flash.now.alert = "Nom ou code confidentiel Invalide"
       render "new"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to candidates_path, :notice => "Logged Out"
+    redirect_to candidates_path, :notice => "Vous êtes correctement déconnecté"
   end
 
 

@@ -10,27 +10,28 @@ class Admin::UsersController < ApplicationController
   def show
     is_admin_logged
     @user = User.find(params[:id])
-
   end
 
   def new
     is_admin_logged
-      @user = User.new
+    @user = User.new
   end
 
   def create
     is_admin_logged
     v = params.require(:user).permit(:file)
 
-    if(v[:file].path)
+    if(params[:file].present?)
       csv_import(v[:file].path)
       redirect_to action: "index", :notice => @user.active
-    
+
     else
       @user = User.new(user_params)
       @user.tour1 = 0
       @user.tour2 = 0
       @user.active = 0
+      @user.encrypted_code = Digest::SHA1.hexdigest(user_params[:encrypted_code])
+
       if @user.save
         redirect_to action: "index", :notice => @user.active
       else
@@ -47,7 +48,7 @@ class Admin::UsersController < ApplicationController
       @user = User.new()
       @user.name = row[0]
       @user.forname = row[1]
-      @user.encrypted_code = row[2]
+      @user.encrypted_code = Digest::SHA1.hexdigest(row[2])
       @user.postal = row[3]
       @user.bureau = row[4]
       @user.tour1 = 0
@@ -58,9 +59,9 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-      def user_params
-        params.require(:user).permit(:name, :forname, :encrypted_code, :postal, :bureau, :tour1, :tour2, :active)
-      end
+  def user_params
+    params.require(:user).permit(:name, :forname, :encrypted_code, :postal, :bureau, :tour1, :tour2, :active)
+  end
 
 
 end

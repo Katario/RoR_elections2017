@@ -15,8 +15,9 @@ Rails.application.routes.draw do
     resources :votes
   end
 
-  
+
   root 'candidates#index'
+  root 'users#edit'
 
   resources :users
   resources :candidates

@@ -40,7 +40,7 @@ class Admin::CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to admin_candidates_path, notice: ' candidate was successfully created.' }
+        format.html { redirect_to admin_candidates_path, notice: 'Le candidat a été correctement créé' }
         format.json { render :show, status: :created, location: admin_candidates_path }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class Admin::CandidatesController < ApplicationController
     is_admin_logged
     respond_to do |format|
       if @candidate.update(candidate_params)
-        format.html { redirect_to admin_candidates_path, notice: ' candidate was successfully updated.' }
+        format.html { redirect_to admin_candidates_path, notice: 'Le candidat a été correctement modifié' }
         format.json { render :show, status: :ok, location: admin_candidates_path }
       else
         format.html { render :edit }
@@ -70,19 +70,19 @@ class Admin::CandidatesController < ApplicationController
     is_admin_logged
     @candidate.destroy
     respond_to do |format|
-      format.html { redirect_to admin_candidates_url, notice: ' candidate was successfully destroyed.' }
+      format.html { redirect_to admin_candidates_url, notice: 'Le candidat a été correctement supprimé' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_candidate
-      @candidate = Candidate.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_candidate
+    @candidate = Candidate.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def candidate_params
-      params.require(:candidate).permit(:nom, :prenom, :affiliation, :photo, :descriptif)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def candidate_params
+    params.require(:candidate).permit(:nom, :prenom, :affiliation, :photo, :descriptif)
+  end
 end
