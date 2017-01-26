@@ -11,7 +11,20 @@ class Admin::CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   def vote
-    @candidates = Candidate.all
+    if tour.date_debut < date && date < tour.date_fin
+        cookies[:tour] = tour.id
+         if tour.id == 2
+          @vote_status = @user.tour2
+          @votes = Vote.where(id_tour: 1).group(:id_candidate).count.sort_by(&:last).reverse.first(2)
+          @candidate1 = @votes[0][0]
+          @candidate2 = @votes[1][0]
+          @candidates = Candidate.where('id= ? OR id= ?', @candidate1, @candidate2 )
+         
+        else
+          @vote_status = @user.tour1
+          @candidates = Candidate.all
+        end
+     else    
   end
 
   # GET /candidates/1

@@ -3,9 +3,13 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votes = Vote.all
-    @results = Vote.group(:id_candidate).count
-    @candidates = Candidate.all
+  is_logged
+  @votest1 = Vote.where(id_tour: 1)
+  @resultst1 = Vote.where(id_tour: 1).group(:id_candidate).count.sort_by(&:last).reverse
+  @votest2 = Vote.where(id_tour: 2)
+  @resultst2 = Vote.where(id_tour: 2).group(:id_candidate).count.sort_by(&:last).reverse.first(2)
+  @candidates = Candidate.all
+
   end
 
   # GET /votes/new
@@ -20,7 +24,6 @@ class VotesController < ApplicationController
     is_logged
     @vote = Vote.new(vote_params)
     @user = current_user
-
     respond_to do |format|
       if @vote.save
         if @vote.id_tour == 1
@@ -34,17 +37,15 @@ class VotesController < ApplicationController
           @user.tour2 = 1
           @vote.save
           @user.save
-          format.html { redirect_to @vote, notice: 'Votre vote a été pris en compte' }
-          format.json { render :show, status: :created, location: @vote }
+          format.html { redirect_to root_path, notice: 'Votre vote a été pris en compte' }
+          format.json { render :show, status: :created, location: root_path }
 
         else
           format.html { render :new }
           format.json { render json: @vote.errors, status: :unprocessable_entity }
         end
       end
-
     end
-
   end
 
 
