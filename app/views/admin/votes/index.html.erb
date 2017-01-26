@@ -14,7 +14,7 @@
       <% end %>
     </ul>
     <div class="boutons">
-    <%= link_to 'Valider les résultats', nil, :class => "btn btn-primary"  %>
+    <%= link_to 'Valider les résultats', {:controller => "Vote", :action => "validation1"}, :class => "btn btn-primary"  %>
     </div>
   </div>
 </div>
@@ -35,7 +35,7 @@
       <% end %>
     </ul>
     <div class="boutons">
-    <%= link_to 'Valider les résultats', nil, :class => "btn btn-primary"  %>
+    <%= link_to 'Valider les résultats', :controller => :vote, :action => :validation2, :class => "btn btn-primary"  %>
     </div>
   </div>
 </div>

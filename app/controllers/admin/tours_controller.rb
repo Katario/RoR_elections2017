@@ -10,7 +10,7 @@ class Admin::ToursController < ApplicationController
     if Tour.last.nil?
       @lastTour = 0
     else
-      @lastTour = Tour.last.id
+      @lastTour = Tour.count(:id)
     end
   end
 

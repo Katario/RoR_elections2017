@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
     get 'log_in' => "connexions#new", :as => "log_in"
     get 'log_out' => "connexions#destroy", :as => "log_out"
+    get 'validation1' => "votes#validation1", :as => "validation1"
+    get 'validation2' => "votes#validation2", :as => "validation2"
 
   	resources :admins
     resources :connexions

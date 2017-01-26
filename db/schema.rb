@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125161743) do
-
+ActiveRecord::Schema.define(version: 20170126130753) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "login"
@@ -49,7 +48,6 @@ ActiveRecord::Schema.define(version: 20170125161743) do
     t.boolean  "active"
     t.boolean  "tour1"
     t.boolean  "tour2"
-
   end
 
   create_table "votes", force: :cascade do |t|
@@ -57,8 +55,9 @@ ActiveRecord::Schema.define(version: 20170125161743) do
     t.integer  "code_postal"
     t.integer  "bureau_de_vote"
     t.integer  "id_tour"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.boolean  "vote_validation"
   end
 
 end
