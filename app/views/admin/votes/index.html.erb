@@ -14,7 +14,11 @@
       <% end %>
     </ul>
     <div class="boutons">
-    <%= link_to 'Valider les résultats', {:controller => "Vote", :action => "validation1"}, :class => "btn btn-primary"  %>
+      <% if @isboutonvalided1 && @isboutonvalided1.vote_validation%>
+        <div>La validation des résultats à déjà été effectuée</div>
+      <% else %>
+        <%= link_to 'Valider les résultats', { :action => "validation1" }, :class => "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -35,7 +39,11 @@
       <% end %>
     </ul>
     <div class="boutons">
-    <%= link_to 'Valider les résultats', :controller => :vote, :action => :validation2, :class => "btn btn-primary"  %>
+      <% if @isboutonvalided2 && @isboutonvalided2.vote_validation%>
+        <div>La validation des résultats à déjà été effectuée</div>
+      <% else %>
+        <%= link_to 'Valider les résultats', { :action => "validation2" }, :class => "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>
