@@ -25,6 +25,7 @@ class Admin::CandidatesController < ApplicationController
           @candidates = Candidate.all
         end
     end
+
   end
 
   # GET /candidates/1
