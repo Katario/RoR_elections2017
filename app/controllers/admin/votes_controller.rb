@@ -12,18 +12,33 @@ class Admin::VotesController < ApplicationController
   end
 
   def validation1
-  	@vote1 = Vote.where(id_tour: 1)
 
-    if @vote1.update_all(vote_validation: 1)
+	  @votest1 = Vote.where(id_tour: 1)
+	  @resultst1 = Vote.where(id_tour: 1).group(:id_candidate).count.sort_by(&:last).reverse
+	  @votest2 = Vote.where(id_tour: 2)
+	  @resultst2 = Vote.where(id_tour: 2).group(:id_candidate).count.sort_by(&:last).reverse.first(2)
+	  @candidates = Candidate.all
+	  @votes = Vote.all
+
+
+    if @votest1.update_all(vote_validation: 1)
   	  redirect_to admin_votes_path
     end
   end
 
-  def validation2
-  	 @vote2 = Vote.where(id_tour: 2)
 
-      if @vote2.update_all(vote_validation: 1)
+  def validation2
+  	 @votest2 = Vote.where(id_tour: 2)
+
+      if @votest2.update_all(vote_validation: 1)
         redirect_to admin_votes_path
       end
   end
+
+  def filter
+  	@candidates = Candidate.all
+  	@votes = Vote.where(code_postal: params[:search]).where(id_tour: params[:tour])
+  	@count = @votes.count
+  end
+
 end

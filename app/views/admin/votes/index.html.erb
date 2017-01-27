@@ -48,6 +48,14 @@
   </div>
 </div>
 
+<%= form_tag admin_filter_path , :method => 'get' do %>
+<%= label_tag "Code Postal"%>
+<%= number_field_tag :search, params[:search] %>
+<%= label_tag "Tour"%>
+<%= number_field_tag :tour, params[:tour] %>
+<%= submit_tag "Filtrer" %>
+<% end %>
+
 <div>
   <ul class="list-group ">
     <li class="list-group-item grey">
@@ -55,7 +63,7 @@
       <div class="item">Tour</div>
       <div class="item">Code Postal</div>
       <div class="item">Bureau de vote</div>
-      <div class="item">Date de vote</div>
+      <div class="item_long">Date de vote</div>
     </li>
     <% @votes.each do |vote| %>
     <li class="list-group-item ">

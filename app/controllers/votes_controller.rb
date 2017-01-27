@@ -3,11 +3,14 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votest1 = Vote.where(id_tour: 1)
-    @resultst1 = Vote.where(id_tour: 1).group(:id_candidate).count.sort_by(&:last).reverse
-    @votest2 = Vote.where(id_tour: 2)
-    @resultst2 = Vote.where(id_tour: 2).group(:id_candidate).count.sort_by(&:last).reverse.first(2)
-    @candidates = Candidate.all
+  is_logged
+  @votest1 = Vote.where(id_tour: 1)
+  @resultst1 = Vote.where(id_tour: 1).group(:id_candidate).count.sort_by(&:last).reverse
+  @votest2 = Vote.where(id_tour: 2)
+  @resultst2 = Vote.where(id_tour: 2).group(:id_candidate).count.sort_by(&:last).reverse.first(2)
+  @candidates = Candidate.all
+  @votes = Vote.all
+
 
   end
 
@@ -47,6 +50,12 @@ class VotesController < ApplicationController
         end
       end
     end
+  end
+
+  def filter
+    @candidates = Candidate.all
+    @votes = Vote.where(code_postal: params[:search]).where(id_tour: params[:tour])
+    @count = @votes.count
   end
 
 

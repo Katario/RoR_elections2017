@@ -10,11 +10,14 @@ Rails.application.routes.draw do
     get 'log_out' => "connexions#destroy", :as => "log_out"
     get 'validation1' => "votes#validation1", :as => "validation1"
     get 'validation2' => "votes#validation2", :as => "validation2"
+    get 'filter' => "votes#filter", :as => "filter"
+
 
   	resources :admins
     resources :connexions
     resources :candidates
     resources :votes
+
   end
 
 
@@ -33,6 +36,8 @@ Rails.application.routes.draw do
   get 'log_in' => "sessions#new", :as => "log_in"
   get 'sign_up' => "users#new", :as => "sign_up"
   get 'election' => "candidates#vote", :as => "election"
+  get 'filter' => "votes#filter", :as => "filter"
+
 
 
 
