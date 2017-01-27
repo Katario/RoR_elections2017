@@ -9,6 +9,7 @@ class VotesController < ApplicationController
   @votest2 = Vote.where(id_tour: 2)
   @resultst2 = Vote.where(id_tour: 2).group(:id_candidate).count.sort_by(&:last).reverse.first(2)
   @candidates = Candidate.all
+  @votes = Vote.all
 
   end
 

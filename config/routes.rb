@@ -8,11 +8,13 @@ Rails.application.routes.draw do
 
     get 'log_in' => "connexions#new", :as => "log_in"
     get 'log_out' => "connexions#destroy", :as => "log_out"
+    get 'filter' => "votes#filter", :as => "filter"
 
   	resources :admins
     resources :connexions
     resources :candidates
     resources :votes
+
   end
 
 
