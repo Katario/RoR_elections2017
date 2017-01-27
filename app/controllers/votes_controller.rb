@@ -49,6 +49,12 @@ class VotesController < ApplicationController
     end
   end
 
+  def filter
+    @candidates = Candidate.all
+    @votes = Vote.where(code_postal: params[:search]).where(id_tour: params[:tour])
+    @count = @votes.count
+  end
+
 
 
   private

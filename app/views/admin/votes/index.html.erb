@@ -40,8 +40,11 @@
   </div>
 </div>
 
-<%= form_tag admin_votes_path , :method => 'get' do %>
-<%= text_field_tag :search, params[:search] %>
+<%= form_tag admin_filter_path , :method => 'get' do %>
+<%= label_tag "Code Postal"%>
+<%= number_field_tag :search, params[:search] %>
+<%= label_tag "Tour"%>
+<%= number_field_tag :tour, params[:tour] %>
 <%= submit_tag "Filtrer" %>
 <% end %>
 

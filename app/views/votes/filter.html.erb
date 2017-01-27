@@ -1,0 +1,30 @@
+<%= form_tag filter_path , :method => 'get' do %>
+<%= label_tag "Code Postal"%>
+<%= number_field_tag :search, params[:search] %>
+<%= label_tag "Tour"%>
+<%= number_field_tag :tour, params[:tour] %>
+<%= submit_tag "Filtrer" %>
+<% end %>
+
+
+<div>
+  <h2>Nombre total de votes pour cette circonsciption:<%= @count %><h2>
+  <ul class="list-group ">
+    <li class="list-group-item grey">
+      <div class="item">Candidat</div>
+      <div class="item">Tour</div>
+      <div class="item">Code Postal</div>
+      <div class="item">Bureau de vote</div>
+      <div class="item">Date de vote</div>
+    </li>
+    <% @votes.each do |vote| %>
+    <li class="list-group-item ">
+      <div class="item"><%= @candidates.find(vote.id_candidate).prenom %> <%= @candidates.find(vote.id_candidate).nom %> </div>
+      <div class="item"><%= vote.id_tour %></div>
+      <div class="item"><%= vote.code_postal %></div>
+      <div class="item"><%= vote.bureau_de_vote %></div>
+      <div class="item"><%= vote.created_at %></div>
+    </li>
+    <% end %>
+  </ul>
+</div>
