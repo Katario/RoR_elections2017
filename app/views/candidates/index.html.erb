@@ -25,20 +25,22 @@
       </div>
       <div class="media-body">
         <h4 class="media-heading">Etape 3</h4>
-        Je reviens pour consulter les résultats des élections
+        Je reviens pour consulter les résultats des élections <%= @vote_status %>
+
       </div>
     </div>
 
   </div>
+
   <div id="homeButton">
     <% if current_user %>
       <% if cookies[:tour]  && @vote_status == false %>
-        <%= link_to 'Je Vote', { :action => "vote"}, :class => "btn btn-lg btn-primary" %>
+        <%= link_to 'Je vote', { :action => "vote"}, :class => "btn btn-lg btn-primary" %>
       <% else %>
         L'election est fermée au vote
       <% end %>
     <% else %>
-    <%= link_to 'Se Connecter', new_session_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to 'Se connecter', new_session_path, class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
 </div>

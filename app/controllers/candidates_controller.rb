@@ -7,8 +7,8 @@ class CandidatesController < ApplicationController
     @tours.each do |tour|
       date = DateTime.now
       if tour.date_debut < date && date < tour.date_fin
+        Tour.count
         cookies[:tour] = tour.id
-
          if tour.id == 2
           @votes = Vote.where(id_tour: 1).group(:id_candidate).count.sort_by(&:last).reverse.first(2)
           @candidate1 = @votes[0][0]
@@ -17,15 +17,16 @@ class CandidatesController < ApplicationController
            if current_user
            @vote_status = @user.tour2
            end
-
         else
           @candidates = Candidate.all
           if current_user
           @vote_status = @user.tour1
+
           end
         end
       else
         cookies.delete :tour
+
       end
     end
   end

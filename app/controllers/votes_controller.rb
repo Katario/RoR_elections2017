@@ -3,7 +3,6 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    is_logged
     @votest1 = Vote.where(id_tour: 1)
     @resultst1 = Vote.where(id_tour: 1).group(:id_candidate).count.sort_by(&:last).reverse
     @votest2 = Vote.where(id_tour: 2)
@@ -30,6 +29,7 @@ class VotesController < ApplicationController
           @user.tour1 = 1
           @vote.save
           @user.save
+
           format.html { redirect_to root_path, notice: 'Votre vote a été pris en compte' }
           format.json { render :show, status: :created, location: root_path }
 
