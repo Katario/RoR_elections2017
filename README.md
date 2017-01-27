@@ -1,24 +1,8 @@
-# README
+# SITE ELECTIONS2017.FR
+Site permettant le vote aux elections présidentielles 2017 créé par le groupe 2 composé d'Hadrien Boé, Alexis d'Harcourt et Alexandra Angehrn
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Vous trouverez le site à l'adresse suivante :
+[elections2017.fr](http://elections2017.herokuapp.com/)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Vous trouverez le site, partie admin à l'adresse suivante :
+[elections2017.fr](http://elections2017.herokuapp.com/admin)
