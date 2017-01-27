@@ -21,7 +21,7 @@ class Admin::UsersController < ApplicationController
     is_admin_logged
     v = params.require(:user).permit(:file)
 
-    if(params[:file].present?)
+    if(v[:file].present?)
       csv_import(v[:file].path)
       redirect_to action: "index", :notice => @user.active
 
