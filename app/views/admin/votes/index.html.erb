@@ -1,54 +1,41 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Résultats Tour 1</div>
-  <div class="panel-body">
-    <ul class="list-group result">
-      <li class="list-group-item grey">
-        <div class="item">Candidat</div>
-        <div class="item">Résultat</div>
-      </li>
-      <% @resultst1.each do |result| %>
-      <li class="list-group-item ">
-        <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
-        <div class="item"><%= (result[1] * 100.0 / @votest1.count).round(2) %>%</div>
-      </li>
-      <% end %>
-    </ul>
-    <div class="boutons">
-      <% if @isboutonvalided1 && @isboutonvalided1.vote_validation%>
-        <div>La validation des résultats à déjà été effectuée</div>
-      <% else %>
-        <%= link_to 'Valider les résultats', { :action => "validation1" }, :class => "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+ <div class="panel panel-default">
+   <div class="panel-heading">Résultats Tour 1</div>
+   <div class="panel-body">
+     <ul class="list-group result">
+       <li class="list-group-item grey">
+         <div class="item">Candidat</div>
+         <div class="item">Résultat</div>
+       </li>
+       <% @resultst1.each do |result| %>
+       <li class="list-group-item ">
+         <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
+         <div class="item"><%= (result[1] * 100.0 / @votest1.count).round(2) %>%</div>
+       </li>
+       <% end %>
+     </ul>
+   </div>
+ </div>
+ 
+ <div class="panel panel-default">
+   <div class="panel-heading">Résultats Tour 2</div>
+   <div class="panel-body">
+     <ul class="list-group result">
+       <li class="list-group-item grey">
+         <div class="item">Candidat</div>
+         <div class="item">Résultat</div>
+       </li>
+       <% @resultst2.each do |result| %>
+       <li class="list-group-item ">
+         <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
+         <div class="item"><%= (result[1] * 100.0 / @votest2.count).round(2) %>%</div>
+       </li>
+       <% end %>
+     </ul>
+   </div>
+ </div>
+ 
 
-<div class="panel panel-default">
-  <div class="panel-heading">Résultats Tour 2</div>
-  <div class="panel-body">
-    <ul class="list-group result">
-      <li class="list-group-item grey">
-        <div class="item">Candidat</div>
-        <div class="item">Résultat</div>
-      </li>
-      <% @resultst2.each do |result| %>
-      <li class="list-group-item ">
-        <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
-        <div class="item"><%= (result[1] * 100.0 / @votest2.count).round(2) %>%</div>
-      </li>
-      <% end %>
-    </ul>
-    <div class="boutons">
-      <% if @isboutonvalided2 && @isboutonvalided2.vote_validation%>
-        <div>La validation des résultats à déjà été effectuée</div>
-      <% else %>
-        <%= link_to 'Valider les résultats', { :action => "validation2" }, :class => "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<%= form_tag admin_filter_path , :method => 'get' do %>
+<%= form_tag filter_path , :method => 'get' do %>
 <%= label_tag "Code Postal"%>
 <%= number_field_tag :search, params[:search] %>
 <%= label_tag "Tour"%>
@@ -56,23 +43,23 @@
 <%= submit_tag "Filtrer" %>
 <% end %>
 
-<div>
-  <ul class="list-group ">
-    <li class="list-group-item grey">
-      <div class="item">Candidat</div>
-      <div class="item">Tour</div>
-      <div class="item">Code Postal</div>
-      <div class="item">Bureau de vote</div>
-      <div class="item_long">Date de vote</div>
-    </li>
-    <% @votes.each do |vote| %>
-    <li class="list-group-item ">
-      <div class="item"><%= @candidates.find(vote.id_candidate).prenom %> <%= @candidates.find(vote.id_candidate).nom %> </div>
-      <div class="item"><%= vote.id_tour %></div>
-      <div class="item"><%= vote.code_postal %></div>
-      <div class="item"><%= vote.bureau_de_vote %></div>
-      <div class="item_long"><%= vote.created_at %></div>
-    </li>
-    <% end %>
-  </ul>
-</div>
+ <div>
+   <ul class="list-group ">
+     <li class="list-group-item grey">
+       <div class="item">Candidat</div>
+       <div class="item">Tour</div>
+       <div class="item">Code Postal</div>
+       <div class="item">Bureau de vote</div>
+       <div class="item">Date de vote</div>
+     </li>
+     <% @votes.each do |vote| %>
+     <li class="list-group-item ">
+       <div class="item"><%= @candidates.find(vote.id_candidate).prenom %> <%= @candidates.find(vote.id_candidate).nom %> </div>
+       <div class="item"><%= vote.id_tour %></div>
+       <div class="item"><%= vote.code_postal %></div>
+       <div class="item"><%= vote.bureau_de_vote %></div>
+       <div class="item"><%= vote.created_at %></div>
+     </li>
+     <% end %>
+   </ul>
+ </div>
