@@ -34,32 +34,15 @@
   </div>
 </div>
 
-
-<%= form_tag filter_path , :method => 'get' do %>
+<div class="panel panel-default">
+  <div class="panel-heading">Filtrer les résultats par code postaux</div>
+  <div class="panel-body">
+<%= form_tag filter_path , :class => "form-horizontal",:method => 'get' do %>
 <%= label_tag "Code Postal"%>
-<%= number_field_tag :search, params[:search] %>
+<%= number_field_tag :search, params[:search], :class => "form-control" %>
 <%= label_tag "Tour"%>
-<%= number_field_tag :tour, params[:tour] %>
-<%= submit_tag "Filtrer" %>
+<%= number_field_tag :tour, params[:tour], :class => "form-control"  %>
+<%= submit_tag "Filtrer", :class => "btn btn-primary" %>
 <% end %>
-
-<div>
-  <ul class="list-group ">
-    <li class="list-group-item grey">
-      <div class="item">Candidat</div>
-      <div class="item">Tour</div>
-      <div class="item">Code Postal</div>
-      <div class="item">Bureau de vote</div>
-      <div class="item_long">Date de vote</div>
-    </li>
-    <% @votes.each do |vote| %>
-    <li class="list-group-item ">
-      <div class="item"><%= @candidates.find(vote.id_candidate).prenom %> <%= @candidates.find(vote.id_candidate).nom %> </div>
-      <div class="item"><%= vote.id_tour %></div>
-      <div class="item"><%= vote.code_postal %></div>
-      <div class="item"><%= vote.bureau_de_vote %></div>
-      <div class="item_long"><%= vote.created_at %></div>
-    </li>
-    <% end %>
-  </ul>
+</div>
 </div>
