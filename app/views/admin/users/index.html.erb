@@ -18,21 +18,22 @@
     <div class="item"><%= user.forname %></div>
     <div class="item"><%= user.postal %></div>
     <div class="item"><%= user.bureau %></div>
+
     <div class="item">
         <% if user.tour1 %>
-          <%= image_tag  "Check-icon.png" %>
+          <%= image_tag  "success.png" %>
         <% else %>
-          Non voté
+        <%= image_tag  "error.png" %>
         <% end %>
     </div>
     <div class="item">
-        <% if user.tour2 %>
-          A voté
-        <% else %>
-          Non voté
-        <% end %>
+      <% if user.tour2 %>
+        <%= image_tag  "success.png" %>
+      <% else %>
+      <%= image_tag  "error.png" %>
+      <% end %>
     </div>
-    
+
   </li>
   <% end %>
 </ul>

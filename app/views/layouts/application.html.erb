@@ -24,7 +24,9 @@
           <li>  <%= link_to "Accueil", candidates_path %></li>
           <li>  <%= link_to "Résultats", votes_path %> </li>
           <% if current_user %>
+          <% if cookies[:tour]  && @vote_status == false %>
           <li>  <%= link_to "Voter", election_path %> </li>
+          <% end %>
           <li>  <%= link_to "Se déconnecter", log_out_path %></li>
           <% else %>
           <li>  <%= link_to "Se connecter", log_in_path %></li>

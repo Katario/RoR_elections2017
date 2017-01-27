@@ -33,11 +33,15 @@
   </div>
 
   <div id="homeButton">
+
     <% if current_user %>
       <% if cookies[:tour]  && @vote_status == false %>
+        Tour <%= cookies[:tour] %>  <br/><br/>
         <%= link_to 'Je vote', { :action => "vote"}, :class => "btn btn-lg btn-primary" %>
-      <% else %>
+      <% elsif @vote_status == false %>
         L'election est fermée au vote
+      <% else %>
+        Votre vote a été enregistré
       <% end %>
     <% else %>
     <%= link_to 'Se connecter', new_session_path, class: "btn btn-lg btn-primary" %>
