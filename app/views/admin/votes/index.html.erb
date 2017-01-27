@@ -6,10 +6,10 @@
         <div class="item">Candidat</div>
         <div class="item">Résultat</div>
       </li>
-      <% @results.each do |result| %>
+      <% @resultst1.each do |result| %>
       <li class="list-group-item ">
         <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
-        <div class="item"><%= (result[1] * 100.0 / @votes.count).round(2) %>%</div>
+        <div class="item"><%= (result[1] * 100.0 / @votest1.count).round(2) %>%</div>
       </li>
       <% end %>
     </ul>
@@ -31,10 +31,10 @@
         <div class="item">Candidat</div>
         <div class="item">Résultat</div>
       </li>
-      <% @results.each do |result| %>
+      <% @resultst2.each do |result| %>
       <li class="list-group-item ">
         <div class="item"><%= @candidates.find(result[0]).prenom %> <%= @candidates.find(result[0]).nom %> </div>
-        <div class="item"><%= (result[1] * 100.0 / @votes.count).round(2) %>%</div>
+        <div class="item"><%= (result[1] * 100.0 / @votest2.count).round(2) %>%</div>
       </li>
       <% end %>
     </ul>
@@ -48,21 +48,23 @@
   </div>
 </div>
 
-<ul class="list-group ">
-  <li class="list-group-item grey">
-    <div class="item">Candidat</div>
-    <div class="item">Tour</div>
-    <div class="item">Code Postal</div>
-    <div class="item">Bureau de vote</div>
-    <div class="item">Date de vote</div>
-  </li>
-  <% @votes.each do |vote| %>
-  <li class="list-group-item ">
-    <div class="item"><%= @candidates.find(vote.id_candidate).prenom %> <%= @candidates.find(vote.id_candidate).nom %> </div>
-    <div class="item"><%= vote.id_tour %></div>
-    <div class="item"><%= vote.code_postal %></div>
-    <div class="item"><%= vote.bureau_de_vote %></div>
-    <div class="item"><%= vote.created_at %></div>
-  </li>
-  <% end %>
-</ul>
+<div>
+  <ul class="list-group ">
+    <li class="list-group-item grey">
+      <div class="item">Candidat</div>
+      <div class="item">Tour</div>
+      <div class="item">Code Postal</div>
+      <div class="item">Bureau de vote</div>
+      <div class="item">Date de vote</div>
+    </li>
+    <% @votes.each do |vote| %>
+    <li class="list-group-item ">
+      <div class="item"><%= @candidates.find(vote.id_candidate).prenom %> <%= @candidates.find(vote.id_candidate).nom %> </div>
+      <div class="item"><%= vote.id_tour %></div>
+      <div class="item"><%= vote.code_postal %></div>
+      <div class="item"><%= vote.bureau_de_vote %></div>
+      <div class="item_long"><%= vote.created_at %></div>
+    </li>
+    <% end %>
+  </ul>
+</div>

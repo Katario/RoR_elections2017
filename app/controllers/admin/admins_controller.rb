@@ -1,4 +1,6 @@
 class Admin::AdminsController < ApplicationController
+  require 'digest/sha1'
+
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
   # GET /admins
@@ -35,10 +37,10 @@ class Admin::AdminsController < ApplicationController
     is_admin_logged
     is_admin_super_admin
     @admin = Admin.new(admin_params)
-
+    @admin.password = Digest::SHA1.hexdigest(admin_params[:password])
     respond_to do |format|
       if @admin.save
-        format.html { redirect_to admin_admins_path, notice: 'Admin was successfully created.' }
+        format.html { redirect_to admin_admins_path, notice: 'L\'administrateur a été correctement créé' }
         format.json { render :show, status: :created, location: admin_admin_path }
       else
         format.html { render :new }
@@ -53,8 +55,11 @@ class Admin::AdminsController < ApplicationController
     is_admin_logged
     is_admin_super_admin
     respond_to do |format|
-      if @admin.update(admin_params)
-        format.html { redirect_to admin_admins_path, notice: 'Admin was successfully updated.' }
+      update_params = params.require(:admin).permit(:login, :password, :statut)
+      update_params[:password] = Digest::SHA1.hexdigest(update_params[:password])
+
+      if @admin.update(update_params)
+        format.html { redirect_to admin_admins_path, notice: 'L\'administrateur a été correctement modifié' }
         format.json { render :show, status: :ok, location: admin_admin_path }
       else
         format.html { render :edit }
@@ -70,19 +75,25 @@ class Admin::AdminsController < ApplicationController
     is_admin_super_admin
     @admin.destroy
     respond_to do |format|
-      format.html { redirect_to admin_admins_path, notice: 'Admin was successfully destroyed.' }
+      format.html { redirect_to admin_admins_path, notice: 'L\'administrateur a été correctement supprimé' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin
-      @admin = Admin.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_params
-      params.require(:admin).permit(:login, :password, :statut)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin
+    @admin = Admin.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_params
+    params.require(:admin).permit(:login, :password, :statut)
+  end
+
+
+
+
+
 end

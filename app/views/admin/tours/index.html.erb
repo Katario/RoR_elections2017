@@ -8,19 +8,19 @@
 </div>
 <ul class="list-group">
   <li class="list-group-item grey">
-    <div class="item">Ouverture</div>
-    <div class="item">Cloture</div>
+    <div class="item_long">Ouverture</div>
+    <div class="item_long">Cloture</div>
     <div class="item">Validation</div>
   </li>
   <% @tours.each do |tour| %>
   <li class="list-group-item">
-    <div class="item"><%= tour.date_debut %></div>
-    <div class="item"><%= tour.date_fin %></div>
+    <div class="item_long"><%= tour.date_debut %></div>
+    <div class="item_long"><%= tour.date_fin %></div>
     <div class="item">validé ?</div>
     <div class="buttons">
-    <%= link_to 'Détail', admin_tour_path(tour), :class => "btn btn-primary" %>
-    <%= link_to 'Modifier', edit_admin_tour_path(tour), :class => "btn btn-primary" %>
-    <%= link_to 'Supprimer',admin_tour_path(tour), method: :delete, data: { confirm: 'Etes-vous sûr?' }, :class => "btn btn-primary" %>
+      <%= link_to 'Modifier', edit_admin_tour_path(tour), :class => "btn btn-primary" %>
+      <%= link_to 'Supprimer',admin_tour_path(tour), method: :delete, data: { confirm: 'Etes-vous sûr?' }, :class => "btn btn-primary" %>
     </div>
   </li>
   <% end %>
+</ul>

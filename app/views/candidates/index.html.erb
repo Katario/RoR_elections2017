@@ -3,7 +3,7 @@
   <div class="panel-body">
     <div class="media">
       <div class="media-left">
-          <%= image_tag "mail.png" %>
+        <%= image_tag "mail.png" %>
       </div>
       <div class="media-body">
         <h4 class="media-heading">Etape 1</h4>
@@ -25,20 +25,22 @@
       </div>
       <div class="media-body">
         <h4 class="media-heading">Etape 3</h4>
-        Je reviens pour consulter les résultats des élections
+        Je reviens pour consulter les résultats des élections <%= @vote_status %>
+
       </div>
     </div>
 
   </div>
+
   <div id="homeButton">
     <% if current_user %>
-      <% if cookies[:tour] %>
-        <%= link_to 'Je Vote', { :action => "vote"}, :class => "btn btn-lg btn-primary" %>
+      <% if cookies[:tour]  && @vote_status == false %>
+        <%= link_to 'Je vote', { :action => "vote"}, :class => "btn btn-lg btn-primary" %>
       <% else %>
         L'election est fermée au vote
       <% end %>
     <% else %>
-    <%= link_to 'Se Connecter', new_session_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to 'Se connecter', new_session_path, class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
 </div>
@@ -50,16 +52,16 @@
   <div class="panel panel-default">
     <div class="panel-heading">LES CANDIDATS A LA PRESIDENTIELLE</div>
     <div class="panel-body">
-  <% @candidates.each do |candidate| %>
-  <div class="col-sm-12 col-md-6 candidates">
-      <%= image_tag candidate.photo %>
-      <%= link_to candidate_path(candidate) do %>
+      <% @candidates.each do |candidate| %>
+      <div class="col-sm-12 col-md-6 candidates">
+        <%= image_tag candidate.photo %>
+        <%= link_to candidate_path(candidate) do %>
         <h3><%= candidate.prenom %> <strong><%= candidate.nom %></strong></h3>
         <p><%= candidate.affiliation %></p>
+        <% end %>
+        <div class="divider"> </div>
+      </div>
       <% end %>
-      <div class="divider"> </div>
+    </div>
   </div>
-  <% end %>
-</div>
-</div>
 </div>
