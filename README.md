@@ -14,3 +14,5 @@ From an admin side, two type of administrators should have been able to
 - Manage the display of the results ;
 
 Each of us had to do an equal numbers of tasks, and we had to know / understand what the others have done.
+
+Please not that we had a week to create this website, and we had only few hours of lessons in RoR at this time, so we had to learn RoR almost from the start !
